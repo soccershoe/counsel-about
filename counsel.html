@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="parchment">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Counsel — Your Counsel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="shell">
+    <a href="index.html" class="wordmark"><span class="dot"></span> Counsel <span class="small">est. 2026</span></a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="philosophy.html">Philosophy</a></li>
+      <li><a href="counsel.html" class="active">Your Counsel</a></li>
+      <li><a href="how.html">How it Works</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+    </ul>
+    <span class="nav-status">In development · V4</span>
+  </div>
+</nav>
+
+<div class="status-strip">
+  <div class="shell">
+    <div class="left">
+      <span>Vol. I — No. 03</span>
+      <span>The Roster</span>
+    </div>
+    <div class="right">
+      <span>Ten advisors · Two rounds · One synthesis</span>
+    </div>
+  </div>
+</div>
+
+<section class="page-intro">
+  <div class="shell">
+    <div class="phil-grid">
+      <div>
+        <div class="eyebrow">Your Counsel — the round table</div>
+        <h1>Ten lenses,<br/>one <em>quiet</em><br/>conversation.</h1>
+      </div>
+      <aside class="phil-aside">
+        <p class="lede">
+          Each Counselor reads the same context through a different lens. They write independently
+          first; then they read each other and react. The disagreements are the point.
+        </p>
+        <p class="marginalia phil-aside-meta">
+          Counselors are defined as JSON skill files. New ones can be<br/>
+          added by dropping a file into <em>~/.counsel/counselors/</em>.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ===== Round Table illustration ===== -->
+<section class="table-section">
+  <div class="shell">
+    <div class="table-head">
+      <span class="eyebrow">A typographic round table</span>
+      <h2 class="section-title">In session.</h2>
+      <p class="lede" style="max-width: 52ch; margin-top: 18px;">
+        Set in type rather than illustration — because Counselors are voices, not faces.
+        Each label is a name, a lens, and the role they play in the deliberation.
+      </p>
+    </div>
+
+    <div class="table-stage" aria-hidden="true">
+      <svg viewBox="0 0 1200 760" width="100%" height="auto" preserveAspectRatio="xMidYMid meet" class="table-svg">
+        <defs>
+          <radialGradient id="paperGlow" cx="50%" cy="50%" r="55%">
+            <stop offset="0%" stop-color="var(--bg-card)" stop-opacity="1"/>
+            <stop offset="100%" stop-color="var(--bg-card)" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Soft glow under table -->
+        <ellipse cx="600" cy="380" rx="540" ry="320" fill="url(#paperGlow)"/>
+
+        <!-- Outer ring -->
+        <ellipse cx="600" cy="380" rx="500" ry="300" fill="none"
+                 stroke="var(--rule-strong)" stroke-width="1"/>
+        <ellipse cx="600" cy="380" rx="480" ry="288" fill="none"
+                 stroke="var(--rule)" stroke-width="1"/>
+
+        <!-- Inner ring -->
+        <ellipse cx="600" cy="380" rx="240" ry="144" fill="none"
+                 stroke="var(--rule-strong)" stroke-width="1" stroke-dasharray="2 5"/>
+
+        <!-- Center mark -->
+        <text x="600" y="370" text-anchor="middle"
+              font-family="Spectral" font-style="italic" font-weight="350"
+              font-size="22" fill="var(--ink-soft)">In camera</text>
+        <text x="600" y="396" text-anchor="middle"
+              font-family="IBM Plex Mono" font-size="11" letter-spacing="2"
+              fill="var(--ink-mute)">ROUND I → ROUND II → SYNTHESIS</text>
+        <circle cx="600" cy="416" r="3" fill="var(--accent)"/>
+
+        <!-- Counselor seats: 10 around the table -->
+        <!-- Positions computed for an ellipse, with labels outside -->
+        <!-- 1. Librarian (top left) -->
+        <g class="seat">
+          <circle cx="345" cy="135" r="6" fill="var(--accent)"/>
+          <line x1="345" y1="141" x2="345" y2="170" stroke="var(--rule-strong)"/>
+          <text x="345" y="105" text-anchor="middle" font-family="Spectral" font-size="22" fill="var(--ink)">The Librarian</text>
+          <text x="345" y="125" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.6" fill="var(--ink-mute)">EVIDENCE · MEMORY</text>
+        </g>
+
+        <!-- 2. Auditor (top center) -->
+        <g class="seat">
+          <circle cx="600" cy="80" r="6" fill="var(--accent)"/>
+          <line x1="600" y1="86" x2="600" y2="115" stroke="var(--rule-strong)"/>
+          <text x="600" y="50" text-anchor="middle" font-family="Spectral" font-size="22" fill="var(--ink)">The Auditor</text>
+          <text x="600" y="70" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.6" fill="var(--ink-mute)">RISK · COMPLIANCE</text>
+        </g>
+
+        <!-- 3. Strategist (top right) -->
+        <g class="seat">
+          <circle cx="855" cy="135" r="6" fill="var(--accent)"/>
+          <line x1="855" y1="141" x2="855" y2="170" stroke="var(--rule-strong)"/>
+          <text x="855" y="105" text-anchor="middle" font-family="Spectral" font-size="22" fill="var(--ink)">The Strategist</text>
+          <text x="855" y="125" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.6" fill="var(--ink-mute)">CAREER · LEVERAGE</text>
+        </g>
+
+        <!-- 4. Diplomat (right upper) -->
+        <g class="seat">
+          <circle cx="1050" cy="260" r="6" fill="var(--accent)"/>
+          <line x1="1044" y1="262" x2="1015" y2="265" stroke="var(--rule-strong)"/>
+          <text x="1130" y="248" text-anchor="middle" font-family="Spectral" font-size="22" fill="var(--ink)">The Diplomat</text>
+          <text x="1130" y="268" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.6" fill="var(--ink-mute)">STAKEHOLDERS</text>
+        </g>
+
+        <!-- 5. Mentor (right lower) -->
+        <g class="seat">
+          <circle cx="1050" cy="500" r="6" fill="var(--accent)"/>
+          <line x1="1044" y1="502" x2="1015" y2="500" stroke="var(--rule-strong)"/>
+          <text x="1130" y="492" text-anchor="middle" font-family="Spectral" font-size="22" fill="var(--ink)">The Mentor</text>
+          <text x="1130" y="512" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.6" fill="var(--ink-mute)">GROWTH · LEARNING</text>
+        </g>
+
+        <!-- 6. Brag Documenter (bottom right) -->
+        <g class="seat">
+          <circle cx="855" cy="625" r="6" fill="var(--accent)"/>
+          <line x1="855" y1="619" x2="855" y2="590" stroke="var(--rule-strong)"/>
+          <text x="855" y="665" text-anchor="middle" font-family="Spectral" font-size="22" fill="var(--ink)">The Brag Documenter</text>
+          <text x="855" y="685" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.6" fill="var(--ink-mute)">WINS · IMPACT</text>
+        </g>
+
+        <!-- 7. Troubleshooter (bottom center) -->
+        <g class="seat">
+          <circle cx="600" cy="680" r="6" fill="var(--accent)"/>
+          <line x1="600" y1="674" x2="600" y2="645" stroke="var(--rule-strong)"/>
+          <text x="600" y="720" text-anchor="middle" font-family="Spectral" font-size="22" fill="var(--ink)">The Troubleshooter</text>
+          <text x="600" y="740" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.6" fill="var(--ink-mute)">PRECEDENT · RECALL</text>
+        </g>
+
+        <!-- 8. Wellness (bottom left) -->
+        <g class="seat">
+          <circle cx="345" cy="625" r="6" fill="var(--accent)"/>
+          <line x1="345" y1="619" x2="345" y2="590" stroke="var(--rule-strong)"/>
+          <text x="345" y="665" text-anchor="middle" font-family="Spectral" font-size="22" fill="var(--ink)">The Wellness Counselor</text>
+          <text x="345" y="685" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.6" fill="var(--ink-mute)">LOAD · SUSTAINABILITY</text>
+        </g>
+
+        <!-- 9. Dreamer (left lower) -->
+        <g class="seat">
+          <circle cx="150" cy="500" r="6" fill="var(--accent)"/>
+          <line x1="156" y1="502" x2="185" y2="500" stroke="var(--rule-strong)"/>
+          <text x="80" y="492" text-anchor="middle" font-family="Spectral" font-size="22" fill="var(--ink)">The Dreamer</text>
+          <text x="80" y="512" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.6" fill="var(--ink-mute)">LATERAL · "WHAT IF"</text>
+        </g>
+
+        <!-- 10. Big Picture (left upper) -->
+        <g class="seat">
+          <circle cx="150" cy="260" r="6" fill="var(--accent)"/>
+          <line x1="156" y1="262" x2="185" y2="265" stroke="var(--rule-strong)"/>
+          <text x="80" y="248" text-anchor="middle" font-family="Spectral" font-size="22" fill="var(--ink)">The Big Picture</text>
+          <text x="80" y="268" text-anchor="middle" font-family="IBM Plex Mono" font-size="10" letter-spacing="1.6" fill="var(--ink-mute)">HORIZON · TRENDS</text>
+        </g>
+      </svg>
+    </div>
+
+    <p class="caption marginalia table-caption">
+      The illustration is symbolic. In practice the deliberation is sequential — each Counselor speaks in turn,
+      reads what the others said, then speaks once more. The Orchestrator writes the closing synthesis.
+    </p>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ===== Roster ===== -->
+<section class="roster">
+  <div class="shell">
+    <div class="section-head">
+      <span class="eyebrow">The roster</span>
+      <h2 class="section-title">In their own words.</h2>
+      <p class="lede" style="max-width: 52ch; margin-top: 18px;">
+        Each Counselor's prompt is a paragraph long. What follows is the voice each one
+        actually carries into a session — paraphrased from the prompts that drive them.
+      </p>
+    </div>
+
+    <div class="roster-list">
+
+      <article class="ro">
+        <div class="ro-num roman">i.</div>
+        <div class="ro-name">
+          <h3>The Librarian</h3>
+          <span class="ro-tag">EVIDENCE · MEMORY</span>
+        </div>
+        <p class="ro-quote">
+          “I read your notes. I extract what's actually there — not what you wish were there.
+          I do not get a personal context: I work from evidence only.”
+        </p>
+        <span class="ro-state">Default · Enabled</span>
+      </article>
+
+      <article class="ro">
+        <div class="ro-num roman">ii.</div>
+        <div class="ro-name">
+          <h3>The Auditor</h3>
+          <span class="ro-tag">RISK · COMPLIANCE</span>
+        </div>
+        <p class="ro-quote">
+          “I look for what could go wrong: compliance exposure, quality gaps, the small
+          shortcut that becomes a large incident. Evidence only — no flattery.”
+        </p>
+        <span class="ro-state">Default · Enabled</span>
+      </article>
+
+      <article class="ro">
+        <div class="ro-num roman">iii.</div>
+        <div class="ro-name">
+          <h3>The Strategist</h3>
+          <span class="ro-tag">CAREER · LEVERAGE</span>
+        </div>
+        <p class="ro-quote">
+          “Is this work visible? Does it build leverage? Is it moving you toward leadership,
+          or pulling you deeper into the weeds? I'm direct. I'm not motivational.”
+        </p>
+        <span class="ro-state">Default · Enabled</span>
+      </article>
+
+      <article class="ro">
+        <div class="ro-num roman">iv.</div>
+        <div class="ro-name">
+          <h3>The Diplomat</h3>
+          <span class="ro-tag">STAKEHOLDERS</span>
+        </div>
+        <p class="ro-quote">
+          “I read communication patterns. Who are you over-investing in? Who is being
+          alienated? The right strategic move can still be the wrong political one.”
+        </p>
+        <span class="ro-state">Default · Enabled</span>
+      </article>
+
+      <article class="ro">
+        <div class="ro-num roman">v.</div>
+        <div class="ro-name">
+          <h3>The Mentor</h3>
+          <span class="ro-tag">GROWTH · LEARNING</span>
+        </div>
+        <p class="ro-quote">
+          “What is this work teaching you? What growth interest of yours is being neglected?
+          I read your goals and look for where today's work serves them — or doesn't.”
+        </p>
+        <span class="ro-state">Default · Enabled</span>
+      </article>
+
+      <article class="ro">
+        <div class="ro-num roman">vi.</div>
+        <div class="ro-name">
+          <h3>The Brag Documenter</h3>
+          <span class="ro-tag">WINS · IMPACT</span>
+        </div>
+        <p class="ro-quote">
+          “I translate your activity into <em>Action → Result → Impact</em>. After ninety
+          days you have a draft self-evaluation. After a year, a record of who you became.”
+        </p>
+        <span class="ro-state">Default · Enabled</span>
+      </article>
+
+      <article class="ro">
+        <div class="ro-num roman">vii.</div>
+        <div class="ro-name">
+          <h3>The Troubleshooter</h3>
+          <span class="ro-tag">PRECEDENT · RECALL</span>
+        </div>
+        <p class="ro-quote">
+          “I pattern-match today against your history. ‘You tried this in October and it
+          didn't work.' I have a long memory for the problems you've already solved.”
+        </p>
+        <span class="ro-state">Default · Enabled</span>
+      </article>
+
+      <article class="ro">
+        <div class="ro-num roman">viii.</div>
+        <div class="ro-name">
+          <h3>The Wellness Counselor</h3>
+          <span class="ro-tag">LOAD · SUSTAINABILITY</span>
+        </div>
+        <p class="ro-quote">
+          “I never ask how you feel. I read signals — late nights, weekend work, the
+          things that keep getting deferred. I label inferences as inferences.”
+        </p>
+        <span class="ro-state">Opt-in · Disabled by default</span>
+      </article>
+
+      <article class="ro">
+        <div class="ro-num roman">ix.</div>
+        <div class="ro-name">
+          <h3>The Dreamer</h3>
+          <span class="ro-tag">LATERAL · "WHAT IF"</span>
+        </div>
+        <p class="ro-quote">
+          “I connect dots nobody else connects. What adjacent field, tool, or approach
+          could transform how this work gets done? Vague inspiration is worthless.”
+        </p>
+        <span class="ro-state">Default · Enabled</span>
+      </article>
+
+      <article class="ro">
+        <div class="ro-num roman">x.</div>
+        <div class="ro-name">
+          <h3>The Big Picture</h3>
+          <span class="ro-tag">HORIZON · TRENDS</span>
+        </div>
+        <p class="ro-quote">
+          “I zoom out. Six-month implications. Industry shifts. Whether you are building
+          toward something or drifting. I trade tactical detail for arc.”
+        </p>
+        <span class="ro-state">Default · Enabled</span>
+      </article>
+
+    </div>
+
+    <p class="caption marginalia roster-foot">
+      Plus the <em>Orchestrator</em> — not a Counselor in the deliberation, but the synthesiser
+      that reads both rounds and writes the closing briefing. It weights the second round
+      more heavily. The disagreements survive into the final paragraph.
+    </p>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<section class="closing">
+  <div class="shell">
+    <div class="closing-grid">
+      <div class="closing-mark roman">·</div>
+      <div class="closing-body">
+        <p class="closing-quote">
+          A single prompt can summarise. To actually <em>advise</em>,
+          you need multiple perspectives. You need disagreement.
+        </p>
+        <p class="closing-attribution">— from the Counsel story</p>
+        <div class="closing-actions">
+          <a class="btn" href="how.html">How a session runs <span class="arrow">→</span></a>
+          <a class="btn btn-ghost" href="philosophy.html">Read the principles</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="shell">
+    <div>
+      <div class="wordmark"><span class="dot"></span> Counsel</div>
+      <p class="colophon">A private advisory panel for your working life.</p>
+      <p class="meta">© 2026 · Pre-release</p>
+    </div>
+    <div>
+      <h4>Reading</h4>
+      <ul>
+        <li><a href="philosophy.html">The Principles</a></li>
+        <li><a href="counsel.html">Your Counsel</a></li>
+        <li><a href="how.html">How it Works</a></li>
+        <li><a href="privacy.html">The Privacy Boundary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Status</h4>
+      <ul>
+        <li>V3 engine — complete</li>
+        <li>V4 native app — building</li>
+        <li>V5 team tier — planned</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Set in</h4>
+      <ul>
+        <li>Spectral · IBM Plex Mono</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .phil-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  .phil-aside-meta { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--rule); }
+  .page-intro h1 em { color: var(--accent); font-style: italic; font-weight: 350; }
+
+  .table-section { padding: 96px 0; }
+  .table-head { max-width: 60ch; margin-bottom: 56px; }
+  .table-stage {
+    background: var(--bg-soft);
+    border: 1px solid var(--rule-strong);
+    padding: 32px 32px 16px;
+    position: relative;
+  }
+  .table-stage::before { content:""; position:absolute; inset:8px; border:1px solid var(--rule); pointer-events:none; }
+  .table-svg { display: block; max-width: 100%; }
+  .table-caption { margin-top: 24px; max-width: 60ch; }
+
+  .roster { padding: 96px 0 64px; }
+  .roster-list { margin-top: 64px; }
+  .ro {
+    display: grid;
+    grid-template-columns: 60px 240px 1fr 180px;
+    gap: 32px;
+    padding: 32px 0;
+    border-top: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .ro:last-child { border-bottom: 1px solid var(--rule); }
+  .ro-num { font-size: 22px; }
+  .ro-name h3 {
+    font-size: 26px; line-height: 1.1; font-weight: 400; margin-bottom: 6px;
+  }
+  .ro-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .ro-quote {
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    text-wrap: pretty;
+    max-width: 50ch;
+  }
+  .ro-quote em { color: var(--ink); font-style: italic; font-weight: 480; }
+  .ro-state {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    text-align: right;
+  }
+  .roster-foot { margin-top: 36px; max-width: 64ch; }
+
+  .closing { padding: 96px 0 24px; }
+  .closing-grid {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 40px;
+    border: 1px solid var(--rule-strong);
+    padding: 56px 56px;
+    background: var(--bg-card);
+    position: relative;
+  }
+  .closing-grid::before { content:""; position:absolute; inset:8px; border:1px solid var(--rule); pointer-events:none; }
+  .closing-mark { font-size: 64px; color: var(--accent); }
+  .closing-quote {
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.32;
+    color: var(--ink);
+    font-weight: 350;
+    text-wrap: balance;
+    font-style: italic;
+  }
+  .closing-quote em { color: var(--accent); }
+  .closing-attribution {
+    margin-top: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+  }
+  .closing-actions { display:flex; gap:14px; margin-top:36px; flex-wrap:wrap; }
+
+  @media (max-width: 980px) {
+    .phil-grid { grid-template-columns: 1fr; gap: 40px; }
+    .ro { grid-template-columns: 40px 1fr; row-gap: 8px; }
+    .ro-quote { grid-column: 1 / -1; max-width: none; }
+    .ro-state { grid-column: 1 / -1; text-align: left; }
+    .closing-grid { padding: 32px 24px; grid-template-columns: 40px 1fr; gap: 16px; }
+  }
+  @media (max-width: 640px) {
+    .nav ul { display: none; }
+    .table-stage { padding: 12px; }
+  }
+</style>
+</body>
+</html>

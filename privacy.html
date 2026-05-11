@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="parchment">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Counsel — Privacy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="shell">
+    <a href="index.html" class="wordmark"><span class="dot"></span> Counsel <span class="small">est. 2026</span></a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="philosophy.html">Philosophy</a></li>
+      <li><a href="counsel.html">Your Counsel</a></li>
+      <li><a href="how.html">How it Works</a></li>
+      <li><a href="privacy.html" class="active">Privacy</a></li>
+    </ul>
+    <span class="nav-status">In development · V4</span>
+  </div>
+</nav>
+
+<div class="status-strip">
+  <div class="shell">
+    <div class="left"><span>Vol. I — No. 05</span><span>The Privacy Boundary</span></div>
+    <div class="right"><span>Local-first · Architecturally enforced</span></div>
+  </div>
+</div>
+
+<section class="page-intro">
+  <div class="shell">
+    <div class="phil-grid">
+      <div>
+        <div class="eyebrow">Privacy — the boundary</div>
+        <h1>Nothing leaves<br/>your machine.<br/><em>Unless you say so.</em></h1>
+      </div>
+      <aside class="phil-aside">
+        <p class="lede">
+          Privacy is not a feature in Counsel. It is the architecture. The code physically cannot
+          send your raw notes anywhere — because the code that would do it does not exist.
+        </p>
+        <p class="marginalia phil-aside-meta">
+          See <em>Principle III</em> and <em>Principle VIII</em>.<br/>
+          Architecture, not policy.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ===== Stays / Leaves table ===== -->
+<section class="boundary">
+  <div class="shell">
+    <div class="section-head">
+      <span class="eyebrow">The two columns</span>
+      <h2 class="section-title">What stays.<br/>What can leave.</h2>
+    </div>
+
+    <div class="bnd-grid">
+      <div class="bnd-col stays">
+        <div class="bnd-head">
+          <span class="bnd-pill">STAYS LOCAL · ALWAYS</span>
+          <h3>On your machine, in your home folder.</h3>
+        </div>
+        <ul class="bnd-list">
+          <li><span class="b-dot">●</span><div><strong>Your notes.</strong> The full text of every Markdown, text, or PDF file Counsel reads.</div></li>
+          <li><span class="b-dot">●</span><div><strong>Window titles &amp; capture data.</strong> What apps you used, what files were open, when.</div></li>
+          <li><span class="b-dot">●</span><div><strong>Personal context.</strong> Your goals, your role, your growth interests, your frustrations.</div></li>
+          <li><span class="b-dot">●</span><div><strong>Briefing history.</strong> Every Round 1, Round 2, and Synthesis ever written, in SQLite.</div></li>
+          <li><span class="b-dot">●</span><div><strong>The notes index.</strong> Embeddings and per-file summaries for semantic search.</div></li>
+          <li><span class="b-dot">●</span><div><strong>Wellness signals.</strong> Inferred load, late-night patterns, deferred-item history.</div></li>
+        </ul>
+        <p class="bnd-note">
+          Stored in <code>~/.counsel/</code>. SQLite + plain text + Markdown. Fully exportable.
+          Fully deletable. Yours.
+        </p>
+      </div>
+
+      <div class="bnd-col leaves">
+        <div class="bnd-head">
+          <span class="bnd-pill alt">CAN LEAVE · ONLY IF YOU CHOOSE</span>
+          <h3>And only what you whitelist.</h3>
+        </div>
+        <ul class="bnd-list">
+          <li><span class="b-dot alt">○</span><div><strong>The Orchestrator's synthesis</strong>, if you turn publishing on.</div></li>
+          <li><span class="b-dot alt">○</span><div><strong>Selected Counselor outputs</strong> — per-Counselor toggle, off by default.</div></li>
+          <li><span class="b-dot alt">○</span><div><strong>Sanitised metadata</strong> — date, cadence, session id. No raw notes, no window titles, no paths.</div></li>
+        </ul>
+        <p class="bnd-note">
+          Publishing is off by default. The publish engine (<code>silos.py</code>) strips raw data
+          before anything is written to a publish package. Even then, you choose where it goes.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ===== Three commitments ===== -->
+<section class="commitments">
+  <div class="shell">
+    <div class="section-head">
+      <span class="eyebrow">Three commitments</span>
+      <h2 class="section-title">In the order they matter.</h2>
+    </div>
+
+    <div class="cmt-list">
+
+      <article class="cmt">
+        <div class="cmt-num roman">I.</div>
+        <div class="cmt-body">
+          <h3>No accounts. No telemetry. No analytics.</h3>
+          <p class="body-text">
+            Counsel does not have a server. There is nowhere for telemetry to go. Installing the app
+            does not register you anywhere. There is no “anonymous usage data” pipe. The application
+            you install on your machine is the entire product.
+          </p>
+        </div>
+      </article>
+
+      <article class="cmt">
+        <div class="cmt-num roman">II.</div>
+        <div class="cmt-body">
+          <h3>The publish boundary is in code, not policy.</h3>
+          <p class="body-text">
+            <code>silos.py</code> is the only path data takes to leave the machine. It strips window
+            titles, file paths, raw note content, and personal context before anything is written.
+            Per-Counselor publish toggles are enforced by config, not by UI convention. If a feature
+            could violate a principle by changing a setting, it is not yet enforced.
+          </p>
+        </div>
+      </article>
+
+      <article class="cmt">
+        <div class="cmt-num roman">III.</div>
+        <div class="cmt-body">
+          <h3>The team tier never looks down.</h3>
+          <p class="body-text">
+            When Counsel eventually grows team features, the team server only receives what
+            individuals choose to publish. It cannot query into individual raw data — that path
+            is structurally impossible, not merely prohibited. There is no leaderboard. No ranking.
+            No comparing employees to each other. <em>Ever.</em>
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ===== Honest caveats ===== -->
+<section class="honest">
+  <div class="shell">
+    <div class="honest-grid">
+      <div>
+        <span class="eyebrow">An honest note</span>
+        <h2 class="section-title">Caveats, not<br/>marketing copy.</h2>
+      </div>
+      <div class="honest-body">
+        <p class="body-text">
+          On a personal install — your laptop, your Mac, your home directory — Counsel is fully
+          local and fully yours. On a managed corporate device, Counsel still works only for you,
+          but device-level data may be subject to IT policies that exist outside the application.
+          Counsel does not change what it does in those environments. <em>It does not build features
+          that make that surveillance easier.</em>
+        </p>
+        <p class="body-text">
+          If you choose a cloud LLM backend instead of the local default, your context is sent to
+          that provider on each call — that is a tradeoff between local privacy and model quality,
+          and the choice is explicitly yours, made once, in setup.
+        </p>
+        <p class="body-text">
+          Inferences are inferences. The Wellness Counselor reads patterns from limited signal.
+          It will not tell you that you are burned out. It will say, <em>“the pattern of your recent
+          work suggests increasing load without corresponding recovery.”</em>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<section class="closing">
+  <div class="shell">
+    <div class="closing-grid">
+      <div class="closing-mark roman">·</div>
+      <div class="closing-body">
+        <p class="closing-quote">
+          The goal is to make violations <em>architecturally impossible</em>,<br/>
+          not merely discouraged.
+        </p>
+        <p class="closing-attribution">— Principle VIII</p>
+        <div class="closing-actions">
+          <a class="btn" href="philosophy.html">All eight principles <span class="arrow">→</span></a>
+          <a class="btn btn-ghost" href="index.html">Back to the front page</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="shell">
+    <div>
+      <div class="wordmark"><span class="dot"></span> Counsel</div>
+      <p class="colophon">A private advisory panel for your working life.</p>
+      <p class="meta">© 2026 · Pre-release</p>
+    </div>
+    <div>
+      <h4>Reading</h4>
+      <ul>
+        <li><a href="philosophy.html">The Principles</a></li>
+        <li><a href="counsel.html">Your Counsel</a></li>
+        <li><a href="how.html">How it Works</a></li>
+        <li><a href="privacy.html">The Privacy Boundary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Status</h4>
+      <ul><li>V3 engine — complete</li><li>V4 native app — building</li><li>V5 team tier — planned</li></ul>
+    </div>
+    <div>
+      <h4>Set in</h4>
+      <ul><li>Spectral · IBM Plex Mono</li></ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .phil-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: end; }
+  .phil-aside-meta { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--rule); }
+  .page-intro h1 em { color: var(--accent); font-style: italic; font-weight: 350; }
+
+  .boundary { padding: 96px 0; }
+  .bnd-grid {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule-strong);
+  }
+  .bnd-col { padding: 40px 36px; }
+  .bnd-col.stays { border-right: 1px solid var(--rule-strong); background: var(--bg-card); }
+  .bnd-head { margin-bottom: 28px; padding-bottom: 22px; border-bottom: 1px solid var(--rule); }
+  .bnd-pill {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .bnd-pill.alt { color: var(--ink-mute); }
+  .bnd-head h3 { font-size: 26px; font-weight: 400; line-height: 1.2; }
+  .bnd-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .bnd-list li {
+    display: grid;
+    grid-template-columns: 22px 1fr;
+    gap: 8px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .bnd-list strong { color: var(--ink); font-weight: 500; }
+  .b-dot { color: var(--accent); font-size: 13px; line-height: 1.7; }
+  .b-dot.alt { color: var(--ink-mute); }
+  .bnd-note {
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid var(--rule);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--ink-mute);
+  }
+  .bnd-note code {
+    color: var(--accent);
+    font-family: inherit;
+  }
+
+  .commitments { padding: 96px 0; }
+  .cmt-list { margin-top: 56px; }
+  .cmt {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 32px;
+    padding: 36px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .cmt:last-child { border-bottom: 1px solid var(--rule); }
+  .cmt-num { font-size: 40px; }
+  .cmt-body h3 { font-size: 28px; font-weight: 400; line-height: 1.2; margin-bottom: 14px; }
+  .cmt-body code { font-family: 'IBM Plex Mono', monospace; font-size: 0.92em; color: var(--accent); }
+  .cmt-body em { color: var(--ink); font-style: italic; font-weight: 480; }
+
+  .honest { padding: 96px 0; }
+  .honest-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+  .honest-grid h2 { margin-top: 14px; }
+  .honest-body em { color: var(--ink); font-style: italic; font-weight: 480; }
+
+  .closing { padding: 96px 0 24px; }
+  .closing-grid {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 40px;
+    border: 1px solid var(--rule-strong);
+    padding: 56px;
+    background: var(--bg-card);
+    position: relative;
+  }
+  .closing-grid::before { content:""; position:absolute; inset:8px; border:1px solid var(--rule); pointer-events:none; }
+  .closing-mark { font-size: 64px; color: var(--accent); }
+  .closing-quote {
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.32;
+    font-weight: 350;
+    text-wrap: balance;
+    font-style: italic;
+  }
+  .closing-quote em { color: var(--accent); }
+  .closing-attribution {
+    margin-top: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+  }
+  .closing-actions { display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap; }
+
+  @media (max-width: 980px) {
+    .phil-grid { grid-template-columns: 1fr; gap: 40px; }
+    .bnd-grid { grid-template-columns: 1fr; }
+    .bnd-col.stays { border-right: 0; border-bottom: 1px solid var(--rule-strong); }
+    .cmt { grid-template-columns: 1fr; gap: 12px; }
+    .honest-grid { grid-template-columns: 1fr; gap: 32px; }
+    .closing-grid { padding: 32px 24px; grid-template-columns: 40px 1fr; gap: 16px; }
+  }
+  @media (max-width: 640px) { .nav ul { display: none; } }
+</style>
+</body>
+</html>

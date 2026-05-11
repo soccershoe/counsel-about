@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="parchment">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Counsel — How it Works</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav class="nav">
+  <div class="shell">
+    <a href="index.html" class="wordmark"><span class="dot"></span> Counsel <span class="small">est. 2026</span></a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="philosophy.html">Philosophy</a></li>
+      <li><a href="counsel.html">Your Counsel</a></li>
+      <li><a href="how.html" class="active">How it Works</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+    </ul>
+    <span class="nav-status">In development · V4</span>
+  </div>
+</nav>
+
+<div class="status-strip">
+  <div class="shell">
+    <div class="left"><span>Vol. I — No. 04</span><span>The Mechanics</span></div>
+    <div class="right"><span>Two rounds · Five clocks · Local LLM</span></div>
+  </div>
+</div>
+
+<section class="page-intro">
+  <div class="shell">
+    <div class="phil-grid">
+      <div>
+        <div class="eyebrow">How it works — the deliberation</div>
+        <h1>Independent first.<br/><em>Reactive</em> second.<br/>Synthesised last.</h1>
+      </div>
+      <aside class="phil-aside">
+        <p class="lede">
+          The architecture has not changed since V1. Independent analysis, structured reaction,
+          one synthesis. Everything else is plumbing.
+        </p>
+        <p class="marginalia phil-aside-meta">
+          Engine — stdlib Python, zero pip. Backend — local LLM (Ollama) by default,<br/>
+          OpenAI-compatible or corporate endpoint optional.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ===== Two-round diagram ===== -->
+<section class="rounds">
+  <div class="shell">
+    <div class="section-head">
+      <span class="eyebrow">Two rounds, one synthesis</span>
+      <h2 class="section-title">A session in three movements.</h2>
+    </div>
+
+    <div class="movements">
+
+      <article class="mvt">
+        <header>
+          <span class="mvt-num roman">I.</span>
+          <span class="mvt-tag">ROUND ONE</span>
+        </header>
+        <h3 class="mvt-title">Independent first takes.</h3>
+        <p class="body-text">
+          Each Counselor reads the same context — your notes, your active windows, your personal
+          context — and writes their analysis without seeing anyone else. The Librarian extracts
+          evidence. The Auditor flags risk. The Strategist asks if the work builds leverage.
+          Ten lenses, ten paragraphs. No groupthink yet.
+        </p>
+        <ul class="mvt-meta">
+          <li><span>Inputs</span><span>Notes · Window titles · Personal context</span></li>
+          <li><span>Concurrency</span><span>One LLM call per Counselor</span></li>
+          <li><span>Memory</span><span>Each Counselor receives their last three Round 1 outputs</span></li>
+        </ul>
+      </article>
+
+      <article class="mvt">
+        <header>
+          <span class="mvt-num roman">II.</span>
+          <span class="mvt-tag">ROUND TWO</span>
+        </header>
+        <h3 class="mvt-title">Structured reaction.</h3>
+        <p class="body-text">
+          Each Counselor reads every other Counselor's Round 1 output and reacts from their own
+          lens. The Auditor pushes back on the Strategist's recommendation. The Diplomat flags that
+          the Strategist's visibility play would alienate a key stakeholder. The Troubleshooter says,
+          <em>“you tried this in October and it didn't work.”</em> Round 2 is where the disagreements live.
+          The disagreements are the value.
+        </p>
+        <ul class="mvt-meta">
+          <li><span>Inputs</span><span>All Round 1 outputs · cross-Counselor memory</span></li>
+          <li><span>Concurrency</span><span>One LLM call per Counselor</span></li>
+          <li><span>Output</span><span>Considered position after debate</span></li>
+        </ul>
+      </article>
+
+      <article class="mvt">
+        <header>
+          <span class="mvt-num roman">III.</span>
+          <span class="mvt-tag">SYNTHESIS</span>
+        </header>
+        <h3 class="mvt-title">The Orchestrator's closing.</h3>
+        <p class="body-text">
+          A final pass weights Round 2 heavily — the considered position after debate is more
+          meaningful than the first take. It surfaces the most interesting disagreements as a
+          <em>Key Tensions</em> section, then writes a single paragraph synthesis you can read
+          in under a minute. The full deliberation is preserved for the days you want to dig.
+        </p>
+        <ul class="mvt-meta">
+          <li><span>Inputs</span><span>All Round 1 + Round 2 outputs</span></li>
+          <li><span>Output</span><span>Briefing markdown · saved to your notes folder</span></li>
+          <li><span>Total</span><span>≈ 21 LLM calls · 3–8 min on Apple Silicon</span></li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ===== Cadence detail ===== -->
+<section class="cadence-detail">
+  <div class="shell">
+    <div class="section-head">
+      <span class="eyebrow">Five clocks</span>
+      <h2 class="section-title">Each cadence reads<br/>different inputs.</h2>
+      <p class="lede" style="max-width: 56ch; margin-top: 18px;">
+        Daily reads raw context. Everything longer reads the previous summaries.
+        That's how the system sees arcs, not incidents.
+      </p>
+    </div>
+
+    <div class="ladder">
+      <div class="ladder-row">
+        <div class="ladder-tag"><h3>Daily</h3><span class="ro-tag">TACTICAL</span></div>
+        <div class="ladder-period">24h</div>
+        <div class="ladder-text">Reads notes &amp; active context. Asks: what happened, what to do tomorrow.</div>
+      </div>
+      <div class="ladder-row">
+        <div class="ladder-tag"><h3>Weekly</h3><span class="ro-tag">RHYTHM</span></div>
+        <div class="ladder-period">7d</div>
+        <div class="ladder-text">Reads the week's daily summaries. Asks: what kept getting deferred? Where did energy actually go?</div>
+      </div>
+      <div class="ladder-row">
+        <div class="ladder-tag"><h3>Monthly</h3><span class="ro-tag">PROGRESS</span></div>
+        <div class="ladder-period">30d</div>
+        <div class="ladder-text">Reads the month's daily summaries. Am I making progress on what matters, or only staying busy?</div>
+      </div>
+      <div class="ladder-row">
+        <div class="ladder-tag"><h3>Quarterly</h3><span class="ro-tag">TRAJECTORY</span></div>
+        <div class="ladder-period">90d</div>
+        <div class="ladder-text">Reads the quarter's daily summaries. Career trajectory check. Wins for self-review. Skills developing vs. intended.</div>
+      </div>
+      <div class="ladder-row">
+        <div class="ladder-tag"><h3>Yearly</h3><span class="ro-tag">ARC</span></div>
+        <div class="ladder-period">365d</div>
+        <div class="ladder-text">Reads the year's daily summaries. Who were you at the start of this year vs. now? What surprised you?</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<!-- ===== Stack ===== -->
+<section class="stack">
+  <div class="shell">
+    <div class="section-head">
+      <span class="eyebrow">The shape of the engine</span>
+      <h2 class="section-title">Small parts. One file each.</h2>
+    </div>
+
+    <div class="stack-grid">
+      <div class="stack-item">
+        <span class="stack-label">counsel.py</span>
+        <p>The deliberation engine. Two rounds, five cadences, one synthesis.</p>
+      </div>
+      <div class="stack-item">
+        <span class="stack-label">db.py</span>
+        <p>SQLite layer. Sessions, Counselor outputs, notes index, personal-context versions, feedback.</p>
+      </div>
+      <div class="stack-item">
+        <span class="stack-label">backend.py</span>
+        <p>AI backend abstraction. Local Ollama, personal cloud, or corporate endpoint — one config switch.</p>
+      </div>
+      <div class="stack-item">
+        <span class="stack-label">memory.py</span>
+        <p>Cross-Counselor memory. Each advisor remembers what they said and what their colleagues said.</p>
+      </div>
+      <div class="stack-item">
+        <span class="stack-label">skills.py</span>
+        <p>Counselor plugins. Drop a JSON file in <em>~/.counsel/counselors/</em> and it joins the table.</p>
+      </div>
+      <div class="stack-item">
+        <span class="stack-label">silos.py</span>
+        <p>Publish engine. The boundary between private and shared. Sanitises before anything leaves.</p>
+      </div>
+      <div class="stack-item">
+        <span class="stack-label">harvest.sh</span>
+        <p>Context harvester. Captures notes &amp; window titles every 30 minutes via launchd.</p>
+      </div>
+      <div class="stack-item">
+        <span class="stack-label">mcp_server.py</span>
+        <p>MCP server. Exposes briefings &amp; deliberation to other AI tools — Claude Desktop, Cursor.</p>
+      </div>
+    </div>
+
+    <p class="caption marginalia stack-foot">
+      Total — about 3,900 lines of Python and bash. Zero pip dependencies.
+      The whole thing fits in a folder you can copy with one command.
+    </p>
+  </div>
+</section>
+
+<hr class="rule" />
+
+<section class="closing">
+  <div class="shell">
+    <div class="closing-grid">
+      <div class="closing-mark roman">·</div>
+      <div class="closing-body">
+        <p class="closing-quote">
+          The system gets more valuable the longer it runs.
+          Not because the AI gets smarter, but because <em>the context gets richer</em>.
+        </p>
+        <p class="closing-attribution">— from the Counsel story</p>
+        <div class="closing-actions">
+          <a class="btn" href="privacy.html">The privacy boundary <span class="arrow">→</span></a>
+          <a class="btn btn-ghost" href="counsel.html">Meet the Counselors</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="shell">
+    <div>
+      <div class="wordmark"><span class="dot"></span> Counsel</div>
+      <p class="colophon">A private advisory panel for your working life.</p>
+      <p class="meta">© 2026 · Pre-release</p>
+    </div>
+    <div>
+      <h4>Reading</h4>
+      <ul>
+        <li><a href="philosophy.html">The Principles</a></li>
+        <li><a href="counsel.html">Your Counsel</a></li>
+        <li><a href="how.html">How it Works</a></li>
+        <li><a href="privacy.html">The Privacy Boundary</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Status</h4>
+      <ul><li>V3 engine — complete</li><li>V4 native app — building</li><li>V5 team tier — planned</li></ul>
+    </div>
+    <div>
+      <h4>Set in</h4>
+      <ul><li>Spectral · IBM Plex Mono</li></ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .phil-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 80px; align-items: end; }
+  .phil-aside-meta { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--rule); }
+  .page-intro h1 em { color: var(--accent); font-style: italic; font-weight: 350; }
+
+  .rounds { padding: 96px 0; }
+  .movements {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  .mvt {
+    padding: 40px 32px;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .mvt:last-child { border-right: 0; }
+  .mvt header { display: flex; justify-content: space-between; align-items: baseline; }
+  .mvt-num { font-size: 32px; }
+  .mvt-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+  .mvt-title {
+    font-size: 26px;
+    line-height: 1.18;
+    font-weight: 400;
+    margin-top: 8px;
+  }
+  .mvt-meta {
+    list-style: none;
+    margin-top: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .mvt-meta li {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    line-height: 1.45;
+    color: var(--ink-soft);
+  }
+  .mvt-meta li span:first-child {
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 10px;
+  }
+
+  .cadence-detail { padding: 96px 0; }
+  .ladder { margin-top: 56px; }
+  .ladder-row {
+    display: grid;
+    grid-template-columns: 220px 80px 1fr;
+    gap: 32px;
+    padding: 24px 0;
+    border-top: 1px solid var(--rule);
+    align-items: center;
+  }
+  .ladder-row:last-child { border-bottom: 1px solid var(--rule); }
+  .ladder-tag h3 { font-size: 28px; font-weight: 400; line-height: 1; margin-bottom: 6px; }
+  .ladder-period {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 28px;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .ladder-text { font-size: 17px; line-height: 1.5; color: var(--ink-soft); max-width: 60ch; }
+  .ro-tag { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+
+  .stack { padding: 96px 0; }
+  .stack-grid {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule-strong);
+    border: 1px solid var(--rule-strong);
+  }
+  .stack-item {
+    background: var(--bg);
+    padding: 24px 22px;
+    min-height: 140px;
+  }
+  .stack-label {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    letter-spacing: 0.04em;
+  }
+  .stack-item p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    text-wrap: pretty;
+  }
+  .stack-item p em { color: var(--ink); font-style: italic; }
+  .stack-foot { margin-top: 28px; max-width: 60ch; }
+
+  .closing { padding: 96px 0 24px; }
+  .closing-grid {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 40px;
+    border: 1px solid var(--rule-strong);
+    padding: 56px;
+    background: var(--bg-card);
+    position: relative;
+  }
+  .closing-grid::before { content:""; position:absolute; inset:8px; border:1px solid var(--rule); pointer-events:none; }
+  .closing-mark { font-size: 64px; color: var(--accent); }
+  .closing-quote {
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.32;
+    font-weight: 350;
+    text-wrap: balance;
+    font-style: italic;
+  }
+  .closing-quote em { color: var(--accent); }
+  .closing-attribution {
+    margin-top: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+  }
+  .closing-actions { display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap; }
+
+  @media (max-width: 980px) {
+    .phil-grid { grid-template-columns: 1fr; gap: 40px; }
+    .movements { grid-template-columns: 1fr; }
+    .mvt { border-right: 0; border-bottom: 1px solid var(--rule); }
+    .mvt:last-child { border-bottom: 0; }
+    .ladder-row { grid-template-columns: 1fr; gap: 8px; }
+    .stack-grid { grid-template-columns: repeat(2, 1fr); }
+    .closing-grid { padding: 32px 24px; grid-template-columns: 40px 1fr; gap: 16px; }
+  }
+  @media (max-width: 640px) {
+    .nav ul { display: none; }
+    .stack-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</body>
+</html>

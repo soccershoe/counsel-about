@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Docket — the input lane that feeds your Counsel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=Libre+Caslon+Text:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  /* paper (default) */
+  --paper:#f4efe3;
+  --paper-2:#efe7d6;
+  --panel:#f8f3e9;
+  --ink:#1d1a13;
+  --ink-2:#5a5340;
+  --ink-3:#8c836c;
+  --rule:#d3c9b2;
+  --rule-soft:#e2d9c5;
+  --gold:#8a6a25;
+  --gold-deep:#74591f;
+  --gold-glow:color-mix(in srgb,var(--gold) 12%,transparent);
+  --maxw:1180px;
+  --serif:"Spectral",Georgia,serif;
+  --display:"Spectral",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+[data-theme="dark"]{
+  --paper:#16140f;
+  --paper-2:#1b1813;
+  --panel:#1d1a14;
+  --ink:#ece5d4;
+  --ink-2:#b6ad96;
+  --ink-3:#867d68;
+  --rule:#322c20;
+  --rule-soft:#272115;
+  --gold:#c8a96e;
+  --gold-deep:#a78a52;
+  --gold-glow:color-mix(in srgb,var(--gold) 16%,transparent);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:19px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 44px}
+a{color:inherit;text-decoration:none}
+.mono{
+  font-family:var(--mono);font-size:11px;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;
+}
+.label{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3)}
+.gold{color:var(--gold)}
+em{font-style:italic}
+h1,h2,h3{font-weight:400;font-family:var(--display);line-height:1.07;letter-spacing:-.01em}
+.tlink{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--gold);border-bottom:1px solid var(--rule);padding-bottom:3px;transition:border-color .2s,color .2s}
+.tlink:hover{border-color:var(--gold);color:var(--ink)}
+
+/* ---------- masthead bar ---------- */
+.masthead{border-bottom:1px solid var(--ink);position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px)}
+.masthead .wrap{display:flex;align-items:center;justify-content:space-between;min-height:60px;gap:22px}
+.mh-name{display:flex;align-items:center;gap:11px;font-family:var(--display);font-size:21px;letter-spacing:.01em;white-space:nowrap}
+.mh-name b{font-weight:600}
+.mh-glyph{width:24px;height:24px;flex:none}
+.mh-nav{display:flex;gap:26px}
+.mh-nav a{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);transition:color .2s;white-space:nowrap}
+.mh-nav a:hover{color:var(--gold)}
+.mh-status{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+@media(max-width:1000px){.mh-nav{display:none}}
+
+/* ---------- dateline ---------- */
+.dateline{border-bottom:1px solid var(--rule);background:var(--paper)}
+.dateline .wrap{display:flex;align-items:center;justify-content:space-between;height:38px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.dateline b{color:var(--ink-2);font-weight:500}
+@media(max-width:680px){.dateline .right{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:66px 0 52px;border-bottom:1px solid var(--ink)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:0}
+.hero-l{padding-right:54px;border-right:1px solid var(--rule)}
+.hero-r{padding-left:46px;display:flex;flex-direction:column;justify-content:center}
+.hero .ey{margin-bottom:30px;color:var(--gold)}
+.hero h1{font-size:clamp(40px,5.4vw,70px);letter-spacing:-.02em;line-height:1.04}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-stand{font-size:20px;color:var(--ink-2);margin-top:30px;max-width:34ch;line-height:1.5}
+.hero-acts{display:flex;gap:26px;align-items:center;margin-top:38px;flex-wrap:wrap}
+.specimen-cap{font-family:var(--mono);font-size:11px;line-height:1.65;color:var(--ink-3);margin-top:20px;letter-spacing:.02em}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-l{padding-right:0;border-right:0}.hero-r{padding-left:0;margin-top:44px}}
+
+/* note specimen */
+.note{background:var(--panel);border:1px solid var(--rule);box-shadow:0 24px 48px -34px rgba(0,0,0,.4);font-family:var(--mono);font-size:12.5px;line-height:1.85}
+.note-bar{display:flex;align-items:center;gap:7px;padding:11px 15px;border-bottom:1px solid var(--rule-soft)}
+.dot{width:9px;height:9px;border-radius:50%;border:1px solid var(--ink-3);opacity:.5}
+.note-title{margin-left:9px;font-size:11px;color:var(--ink-3);letter-spacing:.04em}
+.note-body{padding:18px 20px 22px}
+.nl{white-space:pre;display:block}
+.h-md{color:var(--ink)}
+.task-done{color:var(--ink-3);text-decoration:line-through}
+.task-open{color:var(--ink-2)}
+.sentinel{color:var(--gold);opacity:.6;font-size:10.5px}
+.bullet{color:var(--ink-2)}
+.counsel-q{color:var(--gold)}
+.tag{color:var(--gold)}
+
+/* ---------- meta strip ---------- */
+.metastrip{border-bottom:1px solid var(--ink)}
+.metastrip .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
+.meta{padding:24px 34px 26px;border-right:1px solid var(--rule)}
+.meta:first-child{padding-left:0}
+.meta:last-child{border-right:0;padding-right:0}
+.meta .k{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-bottom:9px}
+.meta .v{font-size:17px;color:var(--ink);line-height:1.4}
+@media(max-width:760px){.metastrip .wrap{grid-template-columns:1fr}.meta{border-right:0;border-bottom:1px solid var(--rule);padding:18px 0}.meta:last-child{border-bottom:0}}
+
+/* ---------- marquee ---------- */
+.marquee{border-bottom:1px solid var(--ink);overflow:hidden;background:var(--paper-2)}
+.marquee-track{display:flex;gap:0;white-space:nowrap;animation:scroll 38s linear infinite;padding:14px 0}
+.marquee-track span{font-family:var(--display);font-size:17px;color:var(--ink-2);padding:0 22px;border-right:1px solid var(--rule)}
+.marquee-track span em{color:var(--gold);font-style:italic}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- editorial section ---------- */
+.feature{padding:84px 0;border-bottom:1px solid var(--rule)}
+.feature-grid{display:grid;grid-template-columns:0.42fr 1fr;gap:60px}
+.feature-grid .side{font-family:var(--display);font-size:64px;color:var(--gold);line-height:.8;font-style:italic}
+.feature-grid .side .skicker{display:block;font-family:var(--mono);font-size:11px;font-style:normal;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-3);margin-top:18px;line-height:1.6}
+.feature h2{font-size:clamp(28px,3.6vw,42px);max-width:18ch}
+.feature h2 em{color:var(--gold)}
+.feature .body p{font-size:19px;color:var(--ink-2);line-height:1.62;margin-top:22px;max-width:62ch}
+.feature .body p.lead{font-size:21px;color:var(--ink)}
+.feature .body .more{margin-top:28px}
+@media(max-width:820px){.feature-grid{grid-template-columns:1fr;gap:26px}.feature-grid .side{font-size:46px}}
+
+/* ---------- numbered list (what you get) ---------- */
+.gains{padding:84px 0 70px;border-bottom:1px solid var(--ink)}
+.gains-head{max-width:30ch;margin-bottom:54px}
+.gains-head .label{display:block;margin-bottom:18px}
+.gains-head h2{font-size:clamp(30px,4vw,46px)}
+.gains-head h2 em{color:var(--gold)}
+.gain-rows{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule)}
+.gain{padding:30px 30px 36px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.gain:nth-child(3n){border-right:0}
+.gain .rn{font-family:var(--display);font-style:italic;font-size:22px;color:var(--gold)}
+.gain h3{font-size:23px;margin:14px 0 11px;line-height:1.18}
+.gain p{font-size:16px;color:var(--ink-2);line-height:1.55}
+@media(max-width:820px){.gain-rows{grid-template-columns:1fr}.gain{border-right:0}}
+
+/* ---------- tiers table ---------- */
+.tiers{padding:84px 0;border-bottom:1px solid var(--ink)}
+.tiers-head{margin-bottom:48px}
+.tiers-head .label{display:block;margin-bottom:18px}
+.tiers-head h2{font-size:clamp(30px,4vw,46px);max-width:20ch}
+.tiers-head h2 em{color:var(--gold)}
+.trow{display:grid;grid-template-columns:0.7fr 1.3fr 0.5fr;gap:30px;padding:30px 0;border-top:1px solid var(--rule);align-items:start}
+.trow:last-child{border-bottom:1px solid var(--rule)}
+.trow .tname{font-family:var(--display);font-size:30px;display:flex;align-items:baseline;gap:14px}
+.trow .tname .pr{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-deep);padding:3px 8px;border-radius:2px}
+.trow.paid .tname{color:var(--ink-3)}
+.trow.paid .tname .pr{color:var(--ink-3);border-color:var(--rule)}
+.trow .tdesc{font-size:17px;color:var(--ink-2);line-height:1.5}
+.trow .tconns{margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.02em;line-height:1.9}
+.trow .tq{font-size:15px;color:var(--ink-3);font-style:italic;text-align:right}
+@media(max-width:820px){.trow{grid-template-columns:1fr;gap:12px}.trow .tq{text-align:left}}
+
+/* ---------- the seam ---------- */
+.seam{padding:90px 0;border-bottom:1px solid var(--ink);text-align:center}
+.seam .label{display:block;margin-bottom:24px;color:var(--gold)}
+.seam h2{font-size:clamp(30px,4.4vw,52px);max-width:16ch;margin:0 auto}
+.seam h2 em{color:var(--gold)}
+.seam .diagram{display:flex;align-items:stretch;justify-content:center;gap:0;margin:54px auto 0;max-width:880px;border:1px solid var(--rule)}
+.seam-col{flex:1;padding:34px 30px;text-align:left}
+.seam-col .role{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+.seam-col h3{font-size:23px;margin:10px 0 12px;font-style:italic}
+.seam-col p{font-size:15px;color:var(--ink-2);line-height:1.5}
+.seam-col .arrow{margin-top:16px;font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.04em}
+.seam-mid{flex:0 0 200px;border-left:1px solid var(--rule);border-right:1px solid var(--rule);background:var(--paper-2);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 18px}
+.seam-mid svg{width:38px;height:38px;margin-bottom:14px}
+.seam-mid .fn{font-family:var(--mono);font-size:12px;color:var(--ink)}
+.seam-mid .fd{font-family:var(--mono);font-size:10px;color:var(--ink-3);margin-top:7px;line-height:1.6}
+.seam-foot{font-size:18px;color:var(--ink-2);max-width:60ch;margin:40px auto 0;line-height:1.55}
+.seam-foot em{color:var(--gold)}
+@media(max-width:760px){.seam .diagram{flex-direction:column}.seam-mid{flex:none;border:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}}
+
+/* ---------- pull quote ---------- */
+.pull{padding:104px 0;border-bottom:1px solid var(--ink);text-align:center}
+.pull .mark{font-family:var(--display);font-style:italic;font-size:40px;color:var(--gold);line-height:1}
+.pull blockquote{font-family:var(--display);font-size:clamp(24px,3.2vw,36px);line-height:1.34;max-width:24ch;margin:26px auto 0;color:var(--ink)}
+.pull blockquote em{color:var(--gold)}
+.pull .by{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:30px}
+.pull .acts{display:flex;gap:26px;justify-content:center;margin-top:38px;flex-wrap:wrap}
+
+/* ---------- footer ---------- */
+footer{padding:64px 0 70px}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid var(--rule)}
+.foot-brand .fb-name{display:flex;align-items:center;gap:11px;font-family:var(--display);font-size:24px}
+.foot-brand .fb-name b{font-weight:600}
+.foot-brand p{font-size:15px;color:var(--ink-2);margin-top:16px;max-width:32ch;line-height:1.55}
+.foot-brand .copy{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ink-3);margin-top:22px;text-transform:uppercase}
+.fcol h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);margin-bottom:16px;font-weight:500}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.fcol li{font-size:15px;color:var(--ink-2)}
+.fcol li a{border-bottom:1px solid transparent;transition:border-color .2s}
+.fcol li a:hover{border-color:var(--gold)}
+.fcol li.dim{color:var(--ink-3)}
+.foot-set{font-size:14px;color:var(--ink-3);line-height:1.7;font-style:italic}
+@media(max-width:820px){.foot-top{grid-template-columns:1fr 1fr;gap:30px}}
+@media(max-width:520px){.foot-top{grid-template-columns:1fr}}
+
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- ============ MASTHEAD ============ -->
+<header class="masthead">
+  <div class="wrap">
+    <a class="mh-name" href="index.html">
+      <svg class="mh-glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="8.5" fill="none" stroke="var(--gold)" stroke-width="1.3"/>
+        <path d="M12 6.5v5.5l3.4 2" fill="none" stroke="var(--gold)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span><b>Counsel</b> <span style="color:var(--ink-3);font-size:13px;letter-spacing:.04em">est. 2026</span></span>
+    </a>
+    <nav class="mh-nav">
+      <a href="index.html">The Suite</a>
+      <a href="https://soccershoe.github.io/counsel-about/index.html">Inner Counsel</a>
+      <a href="docket.html" class="here">Docket</a>
+      <a href="corporate-counsel.html">Corporate Counsel</a>
+      <a href="https://soccershoe.github.io/counsel-about/philosophy.html">Philosophy</a>
+    </nav>
+    <span class="mh-status">Free · Local-first</span>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<!-- ============ DATELINE ============ -->
+<div class="dateline">
+  <div class="wrap">
+    <span><b>Vol. I — No. 02</b> &nbsp;·&nbsp; Docket &nbsp;·&nbsp; Issued May 2026</span>
+    <span class="right">● &nbsp;Local-first · No telemetry · Plain Markdown</span>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-l">
+      <div class="mono ey">A capture lane for your working life</div>
+      <h1>You keep your notes.<br>You put what <em>matters</em><br>on the docket.</h1>
+      <p class="hero-stand">A local-first, NotePlan-<em>lite</em> capture app for macOS — the input lane that gathers your scattered day and feeds the Counsel that deliberates on it.</p>
+      <div class="hero-acts">
+        <a href="#problem" class="tlink">Read the principles →</a>
+        <a href="#connectors" class="tlink">Meet the connectors</a>
+      </div>
+    </div>
+    <div class="hero-r">
+      <div class="note">
+        <div class="note-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="note-title">~/Vault/2026-05-29.md</span>
+        </div>
+        <div class="note-body">
+<span class="nl h-md"># Friday, 29 May</span>
+<span class="nl"> </span>
+<span class="nl h-md">## Tasks</span>
+<span class="nl task-done">* [x] Ship connector registry refactor</span>
+<span class="nl task-open">* [ ] Reschedule TCC review → <span class="tag">Mon</span></span>
+<span class="nl"> </span>
+<span class="nl sentinel">&lt;!-- docket:calendar-start --&gt;</span>
+<span class="nl h-md">## Calendar</span>
+<span class="nl bullet">- 10:00  IAM platform sync</span>
+<span class="nl bullet">- 14:30  1:1 with Priya</span>
+<span class="nl sentinel">&lt;!-- docket:calendar-end --&gt;</span>
+<span class="nl"> </span>
+<span class="nl h-md">## From your Counsel</span>
+<span class="nl counsel-q">&gt; The TCC review has slipped twice.</span>
+<span class="nl counsel-q">&gt; Worth a block before it slips a third.</span>
+        </div>
+      </div>
+      <p class="specimen-cap">↑ A real shape of capture — a daily note with its<br>connector blocks. Set in type, not a screenshot.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ META STRIP ============ -->
+<div class="metastrip">
+  <div class="wrap">
+    <div class="meta"><div class="k">Status</div><div class="v">Phases 1 & 2 shipped · Phase 3 underway</div></div>
+    <div class="meta"><div class="k">Architecture</div><div class="v">SwiftUI · NSTextView · Plain Markdown</div></div>
+    <div class="meta"><div class="k">Boundary</div><div class="v">Nothing leaves the device unless you ask</div></div>
+  </div>
+</div>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Calendar</span><span>Reminders</span><span>Mail <em>· on-device</em></span><span>Apple Notes</span><span>Safari Reading List</span><span>ICS Feeds</span><span>RSS / Atom</span>
+    <span>Calendar</span><span>Reminders</span><span>Mail <em>· on-device</em></span><span>Apple Notes</span><span>Safari Reading List</span><span>ICS Feeds</span><span>RSS / Atom</span>
+  </div>
+</div>
+
+<!-- ============ FEATURE / MANIFESTO ============ -->
+<section class="feature" id="problem">
+  <div class="wrap feature-grid reveal">
+    <div class="side">I.<span class="skicker">The input<br>problem</span></div>
+    <div class="body">
+      <h2>A Counsel is only as good as <em>what it reads.</em></h2>
+      <p class="lead">Point it at a folder of stale notes and it deliberates on stale notes. The intelligence depends on the input lane — and the input lane was the gap.</p>
+      <p>Your day is scattered: a thought jotted here, a meeting on the calendar, a task deferred again, an article saved to read later, a note in Apple Notes you'll never find again. None of it lands in one place your Counsel can read.</p>
+      <p>A <em>docket</em> is the list of matters brought before a council. Docket is a small, local, frictionless place where you keep your notes — the ones you write and the ones you drop in — that doubles as the lane feeding your Counsel.</p>
+      <p class="more"><a href="#privacy" class="tlink">All eight principles →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT YOU GET ============ -->
+<section class="gains" id="capture">
+  <div class="wrap">
+    <div class="gains-head reveal">
+      <span class="label">What it does</span>
+      <h2>Capture, distilled, <em>handed off.</em></h2>
+    </div>
+    <div class="gain-rows reveal">
+      <div class="gain">
+        <div class="rn">i.</div>
+        <h3>Capture</h3>
+        <p>Daily notes, quick thoughts, tasks and checkboxes — in plain Markdown, plain files on the disk you chose. Click a day, get a templated note.</p>
+      </div>
+      <div class="gain">
+        <div class="rn">ii.</div>
+        <h3>Reschedule, don't lose</h3>
+        <p>An unfinished <span class="mono" style="font-size:12px;letter-spacing:0;text-transform:none">* [ ]</span> task moves to another day with its history intact. The deferral itself becomes signal your Counsel can read.</p>
+      </div>
+      <div class="gain">
+        <div class="rn">iii.</div>
+        <h3>Aggregate</h3>
+        <p>Connectors pull scattered local context — calendar, mail, Apple Notes, feeds — into the day's note as readable, summarised Markdown. Never a raw dump.</p>
+      </div>
+      <div class="gain">
+        <div class="rn">iv.</div>
+        <h3>Organise the way you work</h3>
+        <p>A folder hierarchy that follows PARA — Projects, Areas, Resources, Archives. No database, no graph view. Just folders of files you own.</p>
+      </div>
+      <div class="gain">
+        <div class="rn">v.</div>
+        <h3>Hand off to Counsel</h3>
+        <p>Inner Counsel reads the same folder and deliberates. Its briefings return into a read-only <span class="gold">Counsel/</span> section — findings where you already work.</p>
+      </div>
+      <div class="gain">
+        <div class="rn">vi.</div>
+        <h3>Yours to keep</h3>
+        <p>Stop using Docket and lose nothing — the notes are plain Markdown on your disk. The app is a lens over your files, not a silo that traps them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONNECTOR TIERS ============ -->
+<section class="tiers" id="connectors">
+  <div class="wrap">
+    <div class="tiers-head reveal">
+      <span class="label">The connector layer</span>
+      <h2>Three tiers, and the boundary is <em>a decision, not a limit.</em></h2>
+    </div>
+    <div class="reveal">
+      <div class="trow">
+        <div class="tname">Local <span class="pr">Free</span></div>
+        <div>
+          <div class="tdesc">On your Mac, or apps macOS already authenticates. No OAuth, nothing leaves the machine.</div>
+          <div class="tconns">Calendar · Reminders · Mail (on-device summary) · Apple Notes · Safari Reading List</div>
+        </div>
+        <div class="tq">"distill, not firehose"</div>
+      </div>
+      <div class="trow">
+        <div class="tname">Personal <span class="pr">Free</span></div>
+        <div>
+          <div class="tdesc">Your own off-device sources, pulled with no stored credentials — a URL you pasted, fetched https-only.</div>
+          <div class="tconns">ICS calendar feeds · RSS / Atom feeds</div>
+        </div>
+        <div class="tq">"keyless by design"</div>
+      </div>
+      <div class="trow paid">
+        <div class="tname">Corporate <span class="pr">Outer Counsel · Paid</span></div>
+        <div>
+          <div class="tdesc">Keyed, OAuth, employer-owned data. Deliberately <em>not</em> built into Docket — these belong to the paid Outer Counsel tier.</div>
+          <div class="tconns">Jira · Confluence · Slack · OneNote</div>
+        </div>
+        <div class="tq">"no credentials are stored in Docket"</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE SEAM ============ -->
+<section class="seam" id="seam">
+  <div class="wrap">
+    <span class="label">The seam</span>
+    <h2>The file is <em>the API.</em></h2>
+    <div class="diagram reveal">
+      <div class="seam-col">
+        <div class="role">Docket</div>
+        <h3>writes the notes</h3>
+        <p>Everything you capture — and everything the connectors distill — lands as plain Markdown in a folder you chose.</p>
+        <div class="arrow">notes →</div>
+      </div>
+      <div class="seam-mid">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h4.2l1.6 2H19.5A1.5 1.5 0 0 1 21 8.5v9A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z" fill="none" stroke="var(--gold)" stroke-width="1.3" stroke-linejoin="round"/>
+        </svg>
+        <div class="fn">~/Vault</div>
+        <div class="fd">.md · .markdown · .txt<br>a codeless seam</div>
+      </div>
+      <div class="seam-col" style="text-align:right">
+        <div class="role">Inner Counsel</div>
+        <h3>reads the folder</h3>
+        <p>It indexes the same folder, deliberates, and writes briefings back into a read-only Counsel/ section.</p>
+        <div class="arrow">← briefings</div>
+      </div>
+    </div>
+    <p class="seam-foot reveal">No shared code, no IPC, no database. Either app works completely without the other. Data flows one way at a time and never loops — the only cross-app write is a single config pointer, <em>never note data.</em></p>
+  </div>
+</section>
+
+<!-- ============ PRIVACY / PULL QUOTE ============ -->
+<section class="pull" id="privacy">
+  <div class="wrap">
+    <div class="mark">“</div>
+    <blockquote>Docket works for <em>you</em> — not your manager, your employer, or the team that built it. Nothing leaves your machine unless you send it.</blockquote>
+    <div class="by">— from the Docket principles</div>
+    <div class="acts">
+      <a href="#top" class="tlink">No telemetry. No accounts. →</a>
+      <a href="#connectors" class="tlink">No credentials, ever</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="fb-name">
+          <svg class="mh-glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 4.5h8L18 8v11.5H6z" fill="none" stroke="var(--gold)" stroke-width="1.3" stroke-linejoin="round"/>
+            <path d="M14 4.5V8h4" fill="none" stroke="var(--gold)" stroke-width="1.3" stroke-linejoin="round"/>
+            <circle cx="8.6" cy="11" r="0.7" fill="var(--gold)"/><path d="M10.4 11h4.2" stroke="var(--gold)" stroke-width="1.1"/>
+            <circle cx="8.6" cy="13.6" r="0.7" fill="var(--gold)"/><path d="M10.4 13.6h4.2" stroke="var(--gold)" stroke-width="1.1"/>
+            <circle cx="8.6" cy="16.2" r="0.7" fill="var(--gold)"/><path d="M10.4 16.2h2.6" stroke="var(--gold)" stroke-width="1.1"/>
+          </svg>
+          <span><b>Docket</b></span>
+        </div>
+        <p>The capture lane for your working life. Plain Markdown, on a single Apple Silicon Mac. Sibling to Inner Counsel.</p>
+        <div class="copy">© 2026 · Free forever · Pre-release</div>
+      </div>
+      <div class="fcol">
+        <h4>Reading</h4>
+        <ul>
+          <li><a href="#problem">The Input Lane</a></li>
+          <li><a href="#capture">What it Does</a></li>
+          <li><a href="#seam">The Seam</a></li>
+          <li><a href="#privacy">The Privacy Boundary</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Status</h4>
+        <ul>
+          <li>Phase 1 & 2 — shipped</li>
+          <li>Phase 3 — building</li>
+          <li class="dim">Outer Counsel — planned</li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Set in</h4>
+        <ul>
+          <li class="foot-set">Spectral, by Production Type<br>IBM Plex Mono<br>Composed on a single page, not assembled by a CMS.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="tweaks-root"></div>
+
+<script>
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks-app.jsx"></script>
+</body>
+</html>

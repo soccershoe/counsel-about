@@ -1,608 +1,262 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="parchment">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Counsel — A private board of advisors that knows your work</title>
+<title>Counsel — a private board of advisors for your working life</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=Libre+Caslon+Text:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="counsel.css" />
 </head>
 <body>
 
-<!-- ===== Nav ===== -->
-<nav class="nav">
-  <div class="shell">
-    <a href="index.html" class="wordmark">
-      <span class="dot"></span>
-      Counsel
-      <span class="small">est. 2026</span>
+<!-- ============ MASTHEAD ============ -->
+<header class="masthead">
+  <div class="wrap">
+    <a class="mh-name" href="#top">
+      <svg class="mh-glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="8.5" fill="none" stroke="var(--gold)" stroke-width="1.3"/>
+        <path d="M12 6.5v5.5l3.4 2" fill="none" stroke="var(--gold)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span><b>Counsel</b> <span style="color:var(--ink-3);font-size:13px;letter-spacing:.04em">est. 2026</span></span>
     </a>
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="philosophy.html">Philosophy</a></li>
-      <li><a href="counsel.html">Your Counsel</a></li>
-      <li><a href="how.html">How it Works</a></li>
-      <li><a href="privacy.html">Privacy</a></li>
-    </ul>
-    <span class="nav-status">In development · V4</span>
-  </div>
-</nav>
-
-<!-- ===== Status strip ===== -->
-<div class="status-strip">
-  <div class="shell">
-    <div class="left">
-      <span>Vol. I — No. 01</span>
-      <span>Issued April 2026</span>
-    </div>
-    <div class="right">
-      <span class="dot">●</span>
-      <span>Local-first · No telemetry · No accounts</span>
-    </div>
-  </div>
-</div>
-
-<!-- ===== Hero ===== -->
-<header class="hero">
-  <div class="shell hero-grid">
-    <div class="hero-left">
-      <div class="eyebrow">A private advisory panel for your working life</div>
-      <h1 class="display">
-        Ten quiet advisors,<br/>
-        <em>watching only your work,</em><br/>
-        reporting only to you.
-      </h1>
-      <p class="lede">
-        Counsel is a fully local, privacy-first system that watches the context of your work
-        and convenes a panel of AI advisors to deliberate on it — every day, every week, every
-        quarter. Their findings go to one person: you.
-      </p>
-
-      <div class="hero-cta">
-        <a class="btn" href="philosophy.html">Read the principles <span class="arrow">→</span></a>
-        <a class="btn-ghost btn" href="counsel.html">Meet your Counsel</a>
-      </div>
-
-      <div class="hero-meta">
-        <div class="hero-meta-row">
-          <span class="label">Status</span>
-          <span>In private development · V4 — native macOS</span>
-        </div>
-        <div class="hero-meta-row">
-          <span class="label">Architecture</span>
-          <span>Local LLM · SQLite · Stdlib Python · Zero pip</span>
-        </div>
-        <div class="hero-meta-row">
-          <span class="label">Boundary</span>
-          <span>Nothing leaves the device unless you ask</span>
-        </div>
-      </div>
-    </div>
-
-    <aside class="hero-right">
-      <div class="placard">
-        <div class="placard-head">
-          <span class="folio">Brief № 142 · Daily</span>
-          <span class="folio">2026 · 04 · 30</span>
-        </div>
-        <div class="placard-body">
-          <p class="placard-eyebrow">Excerpt — Round 2 reaction</p>
-          <p class="placard-quote">
-            “The Strategist is right that this work is high-leverage,
-            but invisible. <span class="hl">If it ships and no one outside
-            your team sees it, you absorb the cost without the credit.</span>
-            Surface it. Now.”
-          </p>
-          <p class="placard-attribution">— The Diplomat, in reply to The Strategist</p>
-        </div>
-        <div class="placard-foot">
-          <span class="folio">Tensions surfaced: 3</span>
-          <span class="folio">Counselors: 9 of 10</span>
-        </div>
-      </div>
-
-      <div class="caption marginalia hero-caption">
-        ↑ A real shape of output. Not a screenshot —
-        a placeholder set in type, because Counsel is not yet
-        ready for the public to use.
-      </div>
-    </aside>
-  </div>
-
-  <div class="hero-marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>The Librarian</span><span>·</span>
-      <span>The Auditor</span><span>·</span>
-      <span>The Strategist</span><span>·</span>
-      <span>The Diplomat</span><span>·</span>
-      <span>The Mentor</span><span>·</span>
-      <span>The Brag Documenter</span><span>·</span>
-      <span>The Troubleshooter</span><span>·</span>
-      <span>The Wellness Counselor</span><span>·</span>
-      <span>The Dreamer</span><span>·</span>
-      <span>The Big Picture</span><span>·</span>
-      <span>The Librarian</span><span>·</span>
-      <span>The Auditor</span><span>·</span>
-      <span>The Strategist</span><span>·</span>
-      <span>The Diplomat</span><span>·</span>
-      <span>The Mentor</span><span>·</span>
-      <span>The Brag Documenter</span><span>·</span>
-      <span>The Troubleshooter</span><span>·</span>
-      <span>The Wellness Counselor</span><span>·</span>
-      <span>The Dreamer</span><span>·</span>
-      <span>The Big Picture</span><span>·</span>
-    </div>
+    <nav class="mh-nav">
+      <a href="#top" class="here">Principles</a>
+      <a href="https://soccershoe.github.io/counsel-about/index.html">Inner Counsel</a>
+      <a href="docket.html">Docket</a>
+      <a href="corporate-counsel.html">Corporate Counsel</a>
+      <a href="https://soccershoe.github.io/counsel-about/philosophy.html">Philosophy</a>
+    </nav>
+    <span class="mh-status">Local-first · Private</span>
   </div>
 </header>
 
-<!-- ===== Manifesto pull ===== -->
-<section class="pull">
-  <div class="shell">
-    <div class="pull-grid">
-      <div class="pull-num roman">I.</div>
-      <div class="pull-body">
-        <p class="pull-text">
-          The surveillance model of workplace AI treats employees as resources
-          to be measured and optimised from above. <span class="emph">Counsel rejects that premise entirely.</span>
-        </p>
-        <p class="pull-text">
-          You already have the intelligence — a decade of pattern-matching, hard-won
-          judgment, institutional memory. None of it compounds. Every day you start over,
-          every review you scramble. Counsel is a system that watches patiently,
-          remembers everything, and gives the picture back <em>to you</em>.
-        </p>
-        <a href="philosophy.html" class="pull-link">All eight principles <span class="arrow">→</span></a>
+<a id="top"></a>
+
+<!-- ============ DATELINE ============ -->
+<div class="dateline">
+  <div class="wrap">
+    <span><b>Vol. I — No. 00</b> &nbsp;·&nbsp; The Front Page &nbsp;·&nbsp; Issued May 2026</span>
+    <span class="right">● &nbsp;Eight principles · One master · The person it's installed for</span>
+  </div>
+</div>
+
+<!-- ============ SUITE HERO ============ -->
+<section class="suite-hero">
+  <div class="wrap">
+    <div class="mono ey">A private advisory panel for your working life</div>
+    <h1>A council that knows your work, and <em>reports only to you.</em></h1>
+    <p class="stand">Counsel watches the context of your work and convenes a panel of advisors to deliberate on it — entirely on your own machine. What follows are the principles that govern it, and the two free products that live by them.</p>
+    <div class="acts">
+      <a href="#principles" class="tlink">Read the principles ↓</a>
+      <a href="#suite" class="tlink">The personal suite →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PREMISE / LEAD EDITORIAL ============ -->
+<section class="feature" id="premise">
+  <div class="wrap feature-grid reveal">
+    <div class="side">I.<span class="skicker">The premise<br>beneath it all</span></div>
+    <div class="body">
+      <h2>The employee already has <em>the intelligence.</em></h2>
+      <p class="lead">The surveillance model of workplace AI treats people as resources to be measured and optimised from above. Counsel rejects that premise entirely.</p>
+      <p>Knowledge workers accumulate enormous intelligence over years of work — domain expertise, pattern recognition, institutional memory, hard-won judgment. Most of it is invisible, even to themselves, because no system helps them see it.</p>
+      <p>Counsel surfaces that intelligence. It does not extract value upward; it reflects value back to the person who created it. The whole suite is an argument for that one inversion — and the principles below are the constraints that keep it honest.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE PRINCIPLES ============ -->
+<section class="principles" id="principles">
+  <div class="wrap">
+    <div class="principles-head reveal">
+      <span class="label">The Counsel principles</span>
+      <h2>Not marketing language — <em>constraints</em> that govern every decision.</h2>
+    </div>
+    <div class="pgrid reveal">
+      <div class="pcard">
+        <div class="pn">i.</div>
+        <h3>Your Counsel works for you</h3>
+        <p>It serves one master: the person it's installed for — not their manager, their employer, their department, or the team that built it. When that's in tension with any other goal, the person wins.</p>
+      </div>
+      <div class="pcard">
+        <div class="pn">ii.</div>
+        <h3>The employee already has the intelligence</h3>
+        <p>You are not made more valuable by being monitored. You are made more valuable by understanding yourself better. Counsel reflects your value back — it never extracts it upward.</p>
+      </div>
+      <div class="pcard">
+        <div class="pn">iii.</div>
+        <h3>Data belongs to the session, not the surveillance system</h3>
+        <p>Work context is captured for one purpose: to help you think clearly about your own work. It is never used to measure, rank, compare, or report on you to anyone else.</p>
+      </div>
+      <div class="pcard">
+        <div class="pn">iv.</div>
+        <h3>The publish boundary is sacred</h3>
+        <p>Team features publish only the sanitised summaries you explicitly choose — never raw notes, context, or capture data. Data flows up only; the team tier never looks down into individual data.</p>
+        <span class="corp">Holds in Corporate Counsel</span>
+      </div>
+      <div class="pcard">
+        <div class="pn">v.</div>
+        <h3>Counsel never compares employees to each other</h3>
+        <p>The team tier surfaces collective blind spots and shared momentum — never a leaderboard. The moment Counsel ranks individuals, the principle is broken.</p>
+        <span class="corp">Holds in Corporate Counsel</span>
+      </div>
+      <div class="pcard">
+        <div class="pn">vi.</div>
+        <h3>Opt-in is the only mode</h3>
+        <p>Every feature that widens what Counsel observes or shares requires explicit action. No feature silently begins observing more; no update changes a sharing setting.</p>
+      </div>
+      <div class="pcard">
+        <div class="pn">vii.</div>
+        <h3>Inferences are labeled honestly</h3>
+        <p>Patterns drawn from limited data are named as exactly that — never a diagnosis or a fact. Counsel never claims to know more than it does.</p>
+      </div>
+      <div class="pcard">
+        <div class="pn">viii.</div>
+        <h3>The architecture enforces the principles</h3>
+        <p>These are not promises kept by good intention. They are enforced in code — local-first storage, sanitisation that strips raw data, opt-in config defaults. If a setting can violate a principle, it isn't yet enforced.</p>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="rule" />
-
-<!-- ===== What you get ===== -->
-<section class="what">
-  <div class="shell">
-    <div class="section-head">
-      <span class="eyebrow">What you get out of it</span>
-      <h2 class="section-title">Self-knowledge that<br/>survives the week.</h2>
-      <p class="lede" style="max-width: 52ch; margin-top: 22px;">
-        Counsel does not optimise you. It does not score you. It returns to you
-        the picture of your own work that you've never had time to assemble.
-      </p>
+<!-- ============ THE PERSONAL SUITE ============ -->
+<section class="gains" id="suite" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="gains-head reveal" style="max-width:38ch">
+      <span class="label">The personal suite — free forever</span>
+      <h2>Two products that <em>live</em> these principles.</h2>
     </div>
-
-    <div class="what-grid">
-      <article class="what-item">
-        <div class="what-num roman">i.</div>
-        <h3 class="sub-title">Clarity at the end of the day.</h3>
-        <p class="body-text">
-          A daily briefing reads like a thoughtful colleague who watched your day and
-          summarises it back. What happened. What was deferred again. What the
-          shape of tomorrow ought to be. No metrics. No nudges.
-        </p>
-      </article>
-
-      <article class="what-item">
-        <div class="what-num roman">ii.</div>
-        <h3 class="sub-title">A pre-written self-review.</h3>
-        <p class="body-text">
-          The Brag Documenter quietly translates day-to-day work into
-          <em>Action&nbsp;→&nbsp;Result&nbsp;→&nbsp;Impact</em>. After a quarter,
-          you have a draft self-evaluation. After a year, a record of who you
-          became.
-        </p>
-      </article>
-
-      <article class="what-item">
-        <div class="what-num roman">iii.</div>
-        <h3 class="sub-title">An honest career read.</h3>
-        <p class="body-text">
-          The Strategist tracks whether you are doing senior-level work or sliding
-          into maintenance toil. The Diplomat reads your communication patterns.
-          They disagree with each other, often, in your favour.
-        </p>
-      </article>
-
-      <article class="what-item">
-        <div class="what-num roman">iv.</div>
-        <h3 class="sub-title">Patterns you cannot see.</h3>
-        <p class="body-text">
-          Weekly, monthly, quarterly, yearly. Each cadence reads the previous summaries,
-          not the raw notes — so it sees arcs, not incidents. The thing you've been
-          deferring for three weeks is now the headline.
-        </p>
-      </article>
-
-      <article class="what-item">
-        <div class="what-num roman">v.</div>
-        <h3 class="sub-title">A record only you read.</h3>
-        <p class="body-text">
-          Every briefing lives on your machine. SQLite. Markdown. Yours to export,
-          delete, archive. There is no cloud account. There is no team dashboard
-          looking down. There is no leaderboard.
-        </p>
-      </article>
-
-      <article class="what-item">
-        <div class="what-num roman">vi.</div>
-        <h3 class="sub-title">Compounding context.</h3>
-        <p class="body-text">
-          Each Counselor remembers what they said last time, and what their
-          colleagues said. After thirty days you stop getting briefings and
-          start getting an evolving conversation about your career.
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<hr class="rule" />
-
-<!-- ===== Cadences ===== -->
-<section class="cadences">
-  <div class="shell">
-    <div class="section-head">
-      <span class="eyebrow">Five clocks</span>
-      <h2 class="section-title">Tactical to existential,<br/>on a single timeline.</h2>
-    </div>
-
-    <div class="cadence-list">
-      <div class="cadence">
-        <div class="cadence-tag">Daily</div>
-        <div class="cadence-period">24 hours</div>
-        <div class="cadence-reads">Reads — notes &amp; today's context</div>
-        <div class="cadence-q">What happened? What deserves tomorrow?</div>
+    <div class="suite-pair reveal">
+      <div class="sp">
+        <div class="role">No. 02 · The capture lane</div>
+        <div class="sh"><h3>Docket</h3><span class="pr">Free</span></div>
+        <p>A NotePlan-lite daily-notes app. It captures your day as plain Markdown you own and gathers scattered context into the one folder your Counsel reads — locally, with no stored credentials.</p>
+        <div class="maps">Principles ii · iii · vi</div>
+        <a class="go" href="docket.html">Open Docket →</a>
       </div>
-      <div class="cadence">
-        <div class="cadence-tag">Weekly</div>
-        <div class="cadence-period">7 days</div>
-        <div class="cadence-reads">Reads — the week's daily summaries</div>
-        <div class="cadence-q">What kept getting deferred? Where did energy actually go?</div>
-      </div>
-      <div class="cadence">
-        <div class="cadence-tag">Monthly</div>
-        <div class="cadence-period">30 days</div>
-        <div class="cadence-reads">Reads — the month's daily summaries</div>
-        <div class="cadence-q">Am I making progress on what matters, or only staying busy?</div>
-      </div>
-      <div class="cadence">
-        <div class="cadence-tag">Quarterly</div>
-        <div class="cadence-period">90 days</div>
-        <div class="cadence-reads">Reads — the quarter's daily summaries</div>
-        <div class="cadence-q">A career-trajectory check. Wins for self-review. The skills you said you'd build.</div>
-      </div>
-      <div class="cadence">
-        <div class="cadence-tag">Yearly</div>
-        <div class="cadence-period">365 days</div>
-        <div class="cadence-reads">Reads — the year's daily summaries</div>
-        <div class="cadence-q">Who were you at the start of this year, and who are you now?</div>
+      <div class="sp">
+        <div class="role">No. 01 · The deliberation engine</div>
+        <div class="sh"><h3>Inner Counsel</h3><span class="pr">Free</span></div>
+        <p>Convenes a panel of advisors over that same folder, deliberates — daily, weekly, quarterly — and reports its findings to one person: you. Inferences are labelled; nothing flows upward.</p>
+        <div class="maps">Principles i · ii · vii</div>
+        <a class="go" href="https://soccershoe.github.io/counsel-about/index.html">Visit Inner Counsel →</a>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="rule" />
+<!-- ============ THE SEAM ============ -->
+<section class="seam" id="seam">
+  <div class="wrap">
+    <span class="label">How the two fit — Principle viii in practice</span>
+    <h2>The file is <em>the API.</em></h2>
+    <div class="diagram reveal">
+      <div class="seam-col">
+        <div class="role">Docket</div>
+        <h3>writes the notes</h3>
+        <p>Captures your day and gathers scattered context into plain Markdown — in a folder you chose.</p>
+        <div class="arrow">notes →</div>
+      </div>
+      <div class="seam-mid">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h4.2l1.6 2H19.5A1.5 1.5 0 0 1 21 8.5v9A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z" fill="none" stroke="var(--gold)" stroke-width="1.3" stroke-linejoin="round"/>
+        </svg>
+        <div class="fn">~/Vault</div>
+        <div class="fd">.md · .markdown · .txt<br>a codeless seam</div>
+      </div>
+      <div class="seam-col" style="text-align:right">
+        <div class="role">Inner Counsel</div>
+        <h3>reads &amp; deliberates</h3>
+        <p>Indexes the same folder, runs its panel, and writes briefings back into a read-only Counsel/ section.</p>
+        <div class="arrow">← briefings</div>
+      </div>
+    </div>
+    <p class="seam-foot reveal">No shared code, no IPC, no database — the personal pair meets at a folder, not a dependency. Either app works completely without the other, and data flows one way at a time and never loops. The boundary isn't a promise; it's the architecture.</p>
+  </div>
+</section>
 
-<!-- ===== Closing manifesto card ===== -->
-<section class="closing">
-  <div class="shell">
-    <div class="closing-grid">
-      <div class="closing-mark roman">·</div>
-      <div class="closing-body">
-        <p class="closing-quote">
-          Counsel does not replace human judgment.<br/>
-          It gives you ten more pairs of eyes on your own work,<br/>
-          running in the background, delivering their findings<br/>
-          whether you remember to ask or not.
-        </p>
-        <p class="closing-attribution">— from the Counsel principles</p>
+<!-- ============ PRINCIPLE / PULL QUOTE ============ -->
+<section class="pull" id="principle">
+  <div class="wrap">
+    <div class="mark">“</div>
+    <blockquote>If a principle can be violated by changing a setting, <em>it is not yet enforced.</em></blockquote>
+    <div class="by">— Principle viii, the Counsel principles</div>
+    <div class="acts">
+      <a href="https://soccershoe.github.io/counsel-about/philosophy.html" class="tlink">Read all eight in full →</a>
+      <a href="https://soccershoe.github.io/counsel-about/privacy.html" class="tlink">The privacy boundary</a>
+    </div>
+  </div>
+</section>
 
-        <div class="closing-actions">
-          <a class="btn" href="philosophy.html">Read all eight principles <span class="arrow">→</span></a>
-          <a class="btn btn-ghost" href="counsel.html">See the round table</a>
+<!-- ============ CORPORATE POINTER ============ -->
+<section class="cpointer" id="corporate">
+  <div class="wrap">
+    <span class="label">When the work belongs to an organisation</span>
+    <p>The same principles scale to teams and departments — the publish boundary and the no-comparison rule hold the line. That tier is <em>Corporate Counsel.</em></p>
+    <div class="acts">
+      <a href="corporate-counsel.html" class="tlink">See Corporate Counsel →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="fb-name">
+          <svg class="mh-glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="8.5" fill="none" stroke="var(--gold)" stroke-width="1.3"/>
+            <path d="M12 6.5v5.5l3.4 2" fill="none" stroke="var(--gold)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span><b>Counsel</b></span>
         </div>
+        <p>A private advisory panel for your working life. Built quietly, in stdlib Python, on a single Apple Silicon Mac.</p>
+        <div class="copy">© 2026 · All rights reserved · Pre-release</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Footer ===== -->
-<footer class="foot">
-  <div class="shell">
-    <div>
-      <div class="wordmark">
-        <span class="dot"></span> Counsel
+      <div class="fcol">
+        <h4>The Suite</h4>
+        <ul>
+          <li><a href="https://soccershoe.github.io/counsel-about/index.html">Inner Counsel — free</a></li>
+          <li><a href="docket.html">Docket — free</a></li>
+          <li class="dim"><a href="corporate-counsel.html">Corporate Counsel — paid</a></li>
+        </ul>
       </div>
-      <p class="colophon">
-        A private advisory panel for your working life.
-        Built quietly, in stdlib Python, on a single Apple Silicon Mac.
-      </p>
-      <p class="meta">© 2026 · All rights reserved · Pre-release</p>
-    </div>
-    <div>
-      <h4>Reading</h4>
-      <ul>
-        <li><a href="philosophy.html">The Principles</a></li>
-        <li><a href="counsel.html">Your Counsel</a></li>
-        <li><a href="how.html">How it Works</a></li>
-        <li><a href="privacy.html">The Privacy Boundary</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Status</h4>
-      <ul>
-        <li>V3 engine — complete</li>
-        <li>V4 native app — building</li>
-        <li>V5 team tier — planned</li>
-      </ul>
-    </div>
-    <div>
-      <h4>Set in</h4>
-      <ul>
-        <li>Spectral, by Production Type</li>
-        <li>IBM Plex Mono</li>
-        <li>Composed on a single page,<br/>not assembled by a CMS.</li>
-      </ul>
+      <div class="fcol">
+        <h4>Reading</h4>
+        <ul>
+          <li><a href="#principles">The Principles</a></li>
+          <li><a href="https://soccershoe.github.io/counsel-about/counsel.html">Your Counsel</a></li>
+          <li><a href="https://soccershoe.github.io/counsel-about/how.html">How it Works</a></li>
+          <li><a href="https://soccershoe.github.io/counsel-about/privacy.html">The Privacy Boundary</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Set in</h4>
+        <ul>
+          <li class="foot-set">Spectral, by Production Type<br>IBM Plex Mono<br>Composed on a single page, not assembled by a CMS.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </footer>
 
-<style>
-  /* ----- Hero ----- */
-  .hero { padding: 88px 0 0; position: relative; z-index: 2; }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1.55fr 1fr;
-    gap: 80px;
-    align-items: end;
-    padding-bottom: 88px;
-  }
-  .hero-left h1 { margin-top: 22px; }
-  .hero-left h1 em { font-style: italic; color: var(--accent); font-weight: 350; }
-  .hero-left .lede { margin-top: 28px; max-width: 46ch; }
-
-  .hero-cta { display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap; }
-
-  .hero-meta {
-    margin-top: 56px;
-    border-top: 1px solid var(--rule);
-    padding-top: 20px;
-    display: grid;
-    gap: 8px;
-  }
-  .hero-meta-row {
-    display: grid;
-    grid-template-columns: 130px 1fr;
-    gap: 16px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    color: var(--ink-soft);
-    line-height: 1.6;
-  }
-  .hero-meta-row .label {
-    color: var(--ink-mute);
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    font-size: 10px;
-  }
-
-  .hero-right { display: flex; flex-direction: column; gap: 16px; }
-
-  .placard {
-    border: 1px solid var(--rule-strong);
-    background: var(--bg-card);
-    padding: 24px 26px 22px;
-    position: relative;
-  }
-  .placard::before {
-    content: "";
-    position: absolute; inset: 4px;
-    border: 1px solid var(--rule);
-    pointer-events: none;
-  }
-  .placard-head, .placard-foot {
-    display: flex; justify-content: space-between;
-    color: var(--ink-mute);
-  }
-  .placard-foot { margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--rule); }
-  .placard-body { padding: 22px 0 4px; }
-  .placard-eyebrow {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink-mute);
-    margin-bottom: 14px;
-  }
-  .placard-quote {
-    font-size: 19px;
-    line-height: 1.45;
-    color: var(--ink);
-    text-wrap: pretty;
-    font-style: italic;
-    font-weight: 380;
-  }
-  .placard-quote .hl {
-    background: linear-gradient(transparent 65%, color-mix(in oklab, var(--accent) 24%, transparent) 65%);
-  }
-  .placard-attribution {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--ink-mute);
-    margin-top: 14px;
-    letter-spacing: 0.04em;
-  }
-  .hero-caption { padding-left: 6px; }
-
-  /* Marquee */
-  .hero-marquee {
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    padding: 18px 0;
-    overflow: hidden;
-    white-space: nowrap;
-    background: var(--bg-soft);
-  }
-  .marquee-track {
-    display: inline-flex;
-    gap: 28px;
-    animation: scroll 60s linear infinite;
-    font-family: 'Spectral', serif;
-    font-style: italic;
-    font-size: 22px;
-    color: var(--ink-soft);
-  }
-  .marquee-track span:nth-child(odd) { color: var(--ink); }
-  @keyframes scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
-
-  /* Pull */
-  .pull { padding: 120px 0; }
-  .pull-grid {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 40px;
-  }
-  .pull-num { font-size: 88px; line-height: 0.9; }
-  .pull-text {
-    font-size: clamp(28px, 3.2vw, 42px);
-    line-height: 1.18;
-    letter-spacing: -0.012em;
-    color: var(--ink);
-    font-weight: 350;
-    text-wrap: pretty;
-    max-width: 22ch;
-  }
-  .pull-text + .pull-text { margin-top: 32px; max-width: 26ch; }
-  .pull-text .emph {
-    color: var(--accent);
-    font-style: italic;
-  }
-  .pull-link {
-    display: inline-block;
-    margin-top: 40px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink);
-    border-bottom: 1px solid var(--ink);
-    padding-bottom: 4px;
-  }
-  .pull-link:hover { color: var(--accent); border-color: var(--accent); }
-
-  /* What you get */
-  .what { padding: 96px 0 64px; }
-  .section-head { max-width: 60ch; margin-bottom: 64px; }
-  .what-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 56px 48px;
-  }
-  .what-item { padding-top: 22px; border-top: 1px solid var(--rule-strong); }
-  .what-num { font-size: 22px; margin-bottom: 14px; display: block; }
-  .what-item h3 { margin-bottom: 14px; }
-  .what-item .body-text { font-size: 16px; }
-
-  /* Cadences */
-  .cadences { padding: 96px 0; }
-  .cadence-list { margin-top: 56px; }
-  .cadence {
-    display: grid;
-    grid-template-columns: 140px 120px 1.2fr 2fr;
-    gap: 32px;
-    padding: 28px 0;
-    border-top: 1px solid var(--rule);
-    align-items: baseline;
-  }
-  .cadence:last-child { border-bottom: 1px solid var(--rule); }
-  .cadence-tag {
-    font-family: 'Spectral', serif;
-    font-size: 28px;
-    font-weight: 400;
-    color: var(--ink);
-  }
-  .cadence-period {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    color: var(--ink-mute);
-    text-transform: uppercase;
-  }
-  .cadence-reads {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    color: var(--ink-soft);
-    letter-spacing: 0.04em;
-  }
-  .cadence-q {
-    font-style: italic;
-    font-size: 19px;
-    line-height: 1.42;
-    color: var(--ink);
-    max-width: 44ch;
-  }
-
-  /* Closing */
-  .closing { padding: 120px 0 24px; }
-  .closing-grid {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 40px;
-    border: 1px solid var(--rule-strong);
-    padding: 64px 56px;
-    background: var(--bg-card);
-    position: relative;
-  }
-  .closing-grid::before {
-    content: "";
-    position: absolute; inset: 8px;
-    border: 1px solid var(--rule);
-    pointer-events: none;
-  }
-  .closing-mark { font-size: 64px; color: var(--accent); line-height: 1; }
-  .closing-quote {
-    font-size: clamp(24px, 2.6vw, 36px);
-    line-height: 1.32;
-    color: var(--ink);
-    font-weight: 350;
-    text-wrap: balance;
-  }
-  .closing-attribution {
-    margin-top: 24px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    color: var(--ink-mute);
-    text-transform: uppercase;
-  }
-  .closing-actions { display: flex; gap: 14px; margin-top: 40px; flex-wrap: wrap; }
-
-  /* Responsive */
-  @media (max-width: 980px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 56px; }
-    .what-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 32px; }
-    .cadence { grid-template-columns: 1fr 1fr; row-gap: 6px; }
-    .pull-grid { grid-template-columns: 60px 1fr; gap: 24px; }
-    .closing-grid { padding: 40px 28px; grid-template-columns: 40px 1fr; gap: 20px; }
-  }
-  @media (max-width: 640px) {
-    .what-grid { grid-template-columns: 1fr; }
-    .nav ul { display: none; }
-  }
-</style>
+<div id="tweaks-root"></div>
 
 <script>
-// Reveal on scroll
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-}, { threshold: 0.12, rootMargin: "0px 0px -10% 0px" });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks-app.jsx"></script>
 </body>
 </html>

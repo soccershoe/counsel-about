@@ -1,412 +1,191 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="parchment">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Counsel — Philosophy</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="fonts.css" />
+<link rel="stylesheet" href="counsel.css" />
 </head>
 <body>
 
-<nav class="nav">
-  <div class="shell">
-    <a href="index.html" class="wordmark"><span class="dot"></span> Counsel <span class="small">est. 2026</span></a>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="philosophy.html" class="active">Philosophy</a></li>
-      <li><a href="counsel.html">Your Counsel</a></li>
-      <li><a href="how.html">How it Works</a></li>
-      <li><a href="privacy.html">Privacy</a></li>
-    </ul>
-    <span class="nav-status">In development · V4</span>
+<!-- ============ MASTHEAD ============ -->
+<header class="masthead">
+  <div class="wrap">
+    <a class="mh-name" href="index.html">
+      <svg class="mh-glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="8.5" fill="none" stroke="var(--gold)" stroke-width="1.3"/>
+        <path d="M12 6.5v5.5l3.4 2" fill="none" stroke="var(--gold)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span><b>Counsel</b> <span style="color:var(--ink-3);font-size:13px;letter-spacing:.04em">est. 2026</span></span>
+    </a>
+    <nav class="mh-nav">
+      <a href="index.html">The Suite</a>
+      <a href="https://soccershoe.github.io/counsel-about/index.html">Inner Counsel</a>
+      <a href="docket.html">Docket</a>
+      <a href="corporate-counsel.html">Corporate Counsel</a>
+      <a href="philosophy.html" class="here">Philosophy</a>
+    </nav>
+    <span class="mh-status">Local-first · Private</span>
   </div>
-</nav>
+</header>
 
-<div class="status-strip">
-  <div class="shell">
-    <div class="left">
-      <span>Vol. I — No. 02</span>
-      <span>The Principles</span>
-    </div>
-    <div class="right">
-      <span>Eight rules · Architecturally enforced</span>
-    </div>
+<a id="top"></a>
+
+<!-- ============ DATELINE ============ -->
+<div class="dateline">
+  <div class="wrap">
+    <span><b>Vol. I — The Principles</b> &nbsp;·&nbsp; Eight rules &nbsp;·&nbsp; Issued May 2026</span>
+    <span class="right">● &nbsp;Constraints, not promises · Enforced in code</span>
   </div>
 </div>
 
-<!-- Page intro -->
-<section class="page-intro phil-intro">
-  <div class="shell">
-    <div class="phil-grid">
-      <div>
-        <div class="eyebrow">Philosophy — the principles</div>
-        <h1>A tool with<br/>opinions, on<br/><em>your</em> behalf.</h1>
-      </div>
-      <aside class="phil-aside">
-        <p class="lede">
-          These principles are not marketing. They are constraints that govern every design decision in Counsel —
-          enforced by architecture, not by good intentions.
-        </p>
-        <p class="marginalia phil-aside-meta">
-          Excerpted and adapted from the project's<br/>
-          internal <em>PRINCIPLES.md</em>, drafted March 2026.
-        </p>
-      </aside>
+<!-- ============ HERO ============ -->
+<section class="suite-hero">
+  <div class="wrap">
+    <div class="mono ey">Philosophy — the principles</div>
+    <h1>A tool with opinions, <em>on your behalf.</em></h1>
+    <p class="stand">These are not marketing language. They are the constraints that govern every design decision in Counsel — enforced by architecture, not by good intentions.</p>
+    <div class="acts">
+      <a href="#principles" class="tlink">Read all eight ↓</a>
+      <a href="privacy.html" class="tlink">The privacy boundary →</a>
     </div>
   </div>
 </section>
 
-<hr class="rule" />
-
-<!-- Manifesto opener -->
-<section class="manifesto-opener">
-  <div class="shell">
-    <div class="opener-grid">
-      <div class="opener-num roman">§</div>
-      <p class="opener-text dropcap">
-        Most workplace AI is built downward. It watches the worker and reports up — to the manager,
-        to the platform, to the company. <span class="emph">Counsel inverts that.</span> It watches the worker
-        and reports to the worker. Nothing leaves their machine unless they say so. Nothing about
-        them is measured for anyone else's benefit. The architecture is the policy.
-      </p>
+<!-- ============ THE INVERSION ============ -->
+<section class="feature" id="inversion">
+  <div class="wrap feature-grid reveal">
+    <div class="side">§<span class="skicker">The inversion<br>beneath it all</span></div>
+    <div class="body">
+      <h2>Built upward, <em>not downward.</em></h2>
+      <p class="lead">Most workplace AI is built downward. It watches the worker and reports up — to the manager, to the platform, to the company. Counsel inverts that.</p>
+      <p>It watches the worker and reports to the worker. Nothing leaves their machine unless they say so. Nothing about them is measured for anyone else's benefit. The architecture is the policy — and the eight rules below are how that policy is kept.</p>
     </div>
   </div>
 </section>
 
-<hr class="rule" />
-
-<!-- Eight principles -->
-<section class="principles">
-  <div class="shell">
-
-    <article class="principle">
-      <header class="principle-head">
-        <span class="principle-num roman">I.</span>
-        <h2 class="principle-title">Your Counsel works for you.</h2>
-        <span class="principle-tag">SOVEREIGNTY</span>
-      </header>
-      <div class="principle-body">
-        <p class="body-text">
-          Counsel serves one master: the person it's installed for. Not their manager. Not their employer.
-          Not their department. Not the team that built it. Every Counselor, every briefing, every
-          deliberation exists to help one person see their work more clearly, perform better, and
-          understand their own value more completely.
-        </p>
-        <p class="body-text">
-          When that principle is in tension with any other goal, <em>the person wins.</em>
-        </p>
+<!-- ============ THE EIGHT PRINCIPLES (compact ledger) ============ -->
+<section class="principles" id="principles">
+  <div class="wrap">
+    <div class="principles-head reveal">
+      <span class="label">The eight principles</span>
+      <h2>Not marketing language — <em>constraints</em> that govern every decision.</h2>
+    </div>
+    <div class="pgrid reveal">
+      <div class="pcard">
+        <div class="pn">i.</div>
+        <h3>Your Counsel works for you</h3>
+        <p>It serves one master: the person it's installed for — not their manager, employer, department, or the team that built it. When that's in tension with any other goal, the person wins.</p>
+        <span class="corp">Sovereignty</span>
       </div>
-    </article>
-
-    <article class="principle">
-      <header class="principle-head">
-        <span class="principle-num roman">II.</span>
-        <h2 class="principle-title">The employee already has the intelligence.</h2>
-        <span class="principle-tag">REFLECTION, NOT EXTRACTION</span>
-      </header>
-      <div class="principle-body">
-        <p class="body-text">
-          The surveillance model treats employees as resources to be measured and optimised from above.
-          Counsel rejects that premise entirely. Knowledge workers accumulate enormous intelligence —
-          domain expertise, pattern recognition, institutional memory, hard-won judgment. Most of it is
-          invisible, even to themselves, because there is no system that helps them see it.
-        </p>
-        <p class="body-text">
-          Counsel surfaces that intelligence. It does not extract value upward. It reflects value back
-          to the person who created it.
-        </p>
+      <div class="pcard">
+        <div class="pn">ii.</div>
+        <h3>The employee already has the intelligence</h3>
+        <p>The surveillance model measures people from above; Counsel rejects it. Knowledge workers already hold enormous intelligence, most of it invisible even to themselves. Counsel surfaces it and reflects value back — never extracts it upward.</p>
+        <span class="corp">Reflection, not extraction</span>
       </div>
-    </article>
-
-    <article class="principle">
-      <header class="principle-head">
-        <span class="principle-num roman">III.</span>
-        <h2 class="principle-title">Data belongs to the session, not the surveillance system.</h2>
-        <span class="principle-tag">LOCAL FIRST</span>
-      </header>
-      <div class="principle-body">
-        <p class="body-text">
-          Counsel captures work context — note activity, window titles, patterns over time — for one
-          purpose: to help you think more clearly about your own work. That data is never used to
-          measure, rank, compare, or report on you to anyone else. On a personal install you own it
-          completely. You can export, delete, and manage it on your own terms.
-        </p>
+      <div class="pcard">
+        <div class="pn">iii.</div>
+        <h3>Data belongs to the session</h3>
+        <p>Work context is captured for one purpose: to help you think clearly about your own work. It is never used to measure, rank, compare, or report on you. On a personal install you own it completely — export, delete, manage on your terms.</p>
+        <span class="corp">Local first</span>
       </div>
-    </article>
-
-    <article class="principle">
-      <header class="principle-head">
-        <span class="principle-num roman">IV.</span>
-        <h2 class="principle-title">The publish boundary is sacred.</h2>
-        <span class="principle-tag">ONE-WAY VALVE</span>
-      </header>
-      <div class="principle-body">
-        <p class="body-text">
-          When team features are eventually enabled, Counsel can publish sanitised summaries to a shared
-          team silo. This is opt-in, always explicit, always controlled by the individual. Raw notes are
-          never published. Personal context is never published. Window titles, file paths, and capture
-          data are never published. Per-Counselor toggles let you share strategic thinking without
-          sharing wellness signals — or share wins without sharing troubleshooting notes.
-        </p>
-        <p class="body-text">
-          Data flows up only. The team tier sees aggregate patterns. <em>It never looks down.</em>
-        </p>
+      <div class="pcard">
+        <div class="pn">iv.</div>
+        <h3>The publish boundary is sacred</h3>
+        <p>Team features publish only the sanitised summaries you explicitly choose — never raw notes, personal context, window titles, or capture data. Data flows up only; the team tier sees aggregate patterns and never looks down.</p>
+        <span class="corp">One-way valve</span>
       </div>
-    </article>
-
-    <article class="principle">
-      <header class="principle-head">
-        <span class="principle-num roman">V.</span>
-        <h2 class="principle-title">Counsel never compares employees to each other.</h2>
-        <span class="principle-tag">NO LEADERBOARD</span>
-      </header>
-      <div class="principle-body">
-        <p class="body-text">
-          The team tier surfaces collective blind spots, shared momentum, and team-level risks. It does
-          not rank individuals. It does not show who publishes more. It does not surface whose Brag
-          Documenter entries are longer or whose Counselors flagged more risks. The moment Counsel
-          becomes a leaderboard, the principle is broken. If users fear comparative evaluation, they
-          will sanitise their inputs — and sanitised inputs produce degraded deliberation. The
-          no-comparison rule protects the integrity of the system itself.
-        </p>
+      <div class="pcard">
+        <div class="pn">v.</div>
+        <h3>Counsel never compares employees</h3>
+        <p>The team tier surfaces collective blind spots and shared momentum — never individual rankings. The moment Counsel becomes a leaderboard the principle is broken; fear of comparison would degrade the very inputs it relies on.</p>
+        <span class="corp">No leaderboard</span>
       </div>
-    </article>
-
-    <article class="principle">
-      <header class="principle-head">
-        <span class="principle-num roman">VI.</span>
-        <h2 class="principle-title">Opt-in is the only mode.</h2>
-        <span class="principle-tag">CONSENT BY DEFAULT</span>
-      </header>
-      <div class="principle-body">
-        <p class="body-text">
-          Every feature that increases what Counsel observes or shares requires explicit user action.
-          Note &amp; window-title capture is the default. Meeting capture is opt-in. Publishing is off
-          by default. The Wellness Counselor is disabled by default. No feature silently begins
-          observing more. No update changes a sharing setting. You are never surprised by what Counsel
-          knows or shares.
-        </p>
+      <div class="pcard">
+        <div class="pn">vi.</div>
+        <h3>Opt-in is the only mode</h3>
+        <p>Every feature that widens what Counsel observes or shares requires explicit action. Meeting capture, publishing, and the Wellness Counselor are all off by default. No update silently changes a sharing setting.</p>
+        <span class="corp">Consent by default</span>
       </div>
-    </article>
-
-    <article class="principle">
-      <header class="principle-head">
-        <span class="principle-num roman">VII.</span>
-        <h2 class="principle-title">Inferences are labelled honestly.</h2>
-        <span class="principle-tag">EPISTEMIC HUMILITY</span>
-      </header>
-      <div class="principle-body">
-        <p class="body-text">
-          Counsel draws inferences from context — stress signals from work patterns, career trajectory
-          from task types, team dynamics from communication. These are useful. They are also uncertain.
-          Every inference is labelled as what it is — a pattern observed from limited data, not a
-          diagnosis or a fact. The Wellness Counselor does not tell you that you are burned out. It
-          says: <em>“The pattern of your recent work suggests increasing load without corresponding recovery.
-          You may want to pay attention to this.”</em>
-        </p>
+      <div class="pcard">
+        <div class="pn">vii.</div>
+        <h3>Inferences are labelled honestly</h3>
+        <p>Patterns drawn from limited data are named as exactly that — never a diagnosis or a fact. The Wellness Counselor doesn't say you're burned out; it says the pattern suggests rising load without recovery, and you may want to look.</p>
+        <span class="corp">Epistemic humility</span>
       </div>
-    </article>
-
-    <article class="principle">
-      <header class="principle-head">
-        <span class="principle-num roman">VIII.</span>
-        <h2 class="principle-title">The architecture enforces the principles.</h2>
-        <span class="principle-tag">CODE, NOT POLICY</span>
-      </header>
-      <div class="principle-body">
-        <p class="body-text">
-          These principles are not policy statements followed by good intentions. They are enforced by
-          the architecture. Data sovereignty is enforced by local-first storage. The publish boundary
-          is enforced by code that strips raw data before it can leak. Per-Counselor toggles are
-          enforced by config, not UI convention. The no-comparison rule will be enforced by the team
-          tier's data model — individual-level queries are structurally impossible, not merely
-          prohibited.
-        </p>
-        <p class="body-text">
-          If a principle can be violated by changing a setting, it is not yet enforced. The goal is to
-          make violations <em>architecturally impossible</em>, not merely discouraged.
-        </p>
+      <div class="pcard">
+        <div class="pn">viii.</div>
+        <h3>The architecture enforces the principles</h3>
+        <p>These aren't promises kept by good intention — they're enforced in code: local-first storage, sanitisation that strips raw data, opt-in config defaults. If a setting can violate a principle, it isn't yet enforced.</p>
+        <span class="corp">Code, not policy</span>
       </div>
-    </article>
-
+    </div>
   </div>
 </section>
 
-<hr class="rule" />
+<!-- ============ CLOSING PULL QUOTE ============ -->
+<section class="pull" id="principle">
+  <div class="wrap">
+    <div class="mark">“</div>
+    <blockquote>A tool on a managed endpoint still operates within an organisational context. Counsel's job is <em>still to serve the person,</em> within whatever environment they're in.</blockquote>
+    <div class="by">— Principle III, footnote</div>
+    <div class="acts">
+      <a href="counsel.html" class="tlink">Meet your Counsel →</a>
+      <a href="privacy.html" class="tlink">The privacy boundary</a>
+    </div>
+  </div>
+</section>
 
-<!-- Closing -->
-<section class="phil-closing">
-  <div class="shell">
-    <div class="closing-grid">
-      <div class="closing-mark roman">·</div>
-      <div class="closing-body">
-        <p class="closing-quote">
-          A tool on a managed endpoint operates within an organisational context.
-          Counsel's job is still to serve the person, within whatever environment they're in.
-        </p>
-        <p class="closing-attribution">— Principle III, footnote</p>
-        <div class="closing-actions">
-          <a class="btn" href="counsel.html">Meet your Counsel <span class="arrow">→</span></a>
-          <a class="btn btn-ghost" href="privacy.html">The privacy boundary</a>
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="fb-name">
+          <svg class="mh-glyph" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="8.5" fill="none" stroke="var(--gold)" stroke-width="1.3"/>
+            <path d="M12 6.5v5.5l3.4 2" fill="none" stroke="var(--gold)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span><b>Counsel</b></span>
         </div>
+        <p>A private advisory panel for your working life. Built quietly, in stdlib Python, on a single Apple Silicon Mac.</p>
+        <div class="copy">© 2026 · All rights reserved · Pre-release</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<footer class="foot">
-  <div class="shell">
-    <div>
-      <div class="wordmark"><span class="dot"></span> Counsel</div>
-      <p class="colophon">A private advisory panel for your working life.</p>
-      <p class="meta">© 2026 · Pre-release</p>
-    </div>
-    <div>
-      <h4>Reading</h4>
-      <ul>
-        <li><a href="philosophy.html">The Principles</a></li>
-        <li><a href="counsel.html">Your Counsel</a></li>
-        <li><a href="how.html">How it Works</a></li>
-        <li><a href="privacy.html">The Privacy Boundary</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Status</h4>
-      <ul>
-        <li>V3 engine — complete</li>
-        <li>V4 native app — building</li>
-        <li>V5 team tier — planned</li>
-      </ul>
-    </div>
-    <div>
-      <h4>Set in</h4>
-      <ul>
-        <li>Spectral · IBM Plex Mono</li>
-      </ul>
+      <div class="fcol">
+        <h4>The Suite</h4>
+        <ul>
+          <li><a href="https://soccershoe.github.io/counsel-about/index.html">Inner Counsel — free</a></li>
+          <li><a href="docket.html">Docket — free</a></li>
+          <li class="dim"><a href="corporate-counsel.html">Corporate Counsel — paid</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Reading</h4>
+        <ul>
+          <li><a href="philosophy.html">The Principles</a></li>
+          <li><a href="counsel.html">Your Counsel</a></li>
+          <li><a href="how.html">How it Works</a></li>
+          <li><a href="privacy.html">The Privacy Boundary</a></li>
+        </ul>
+      </div>
+      <div class="fcol">
+        <h4>Set in</h4>
+        <ul>
+          <li class="foot-set">Spectral, by Production Type<br>IBM Plex Mono<br>Composed on a single page, not assembled by a CMS.</li>
+        </ul>
+      </div>
     </div>
   </div>
 </footer>
 
-<style>
-  .phil-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 80px;
-    align-items: end;
-  }
-  .phil-aside { padding-bottom: 8px; }
-  .phil-aside-meta { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--rule); }
-  .page-intro h1 em { color: var(--accent); font-style: italic; font-weight: 350; }
+<script>
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 
-  .manifesto-opener { padding: 88px 0; }
-  .opener-grid {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 32px;
-    max-width: 1100px;
-  }
-  .opener-num { font-size: 64px; color: var(--accent); }
-  .opener-text {
-    font-size: clamp(22px, 2.2vw, 28px);
-    line-height: 1.45;
-    color: var(--ink);
-    font-weight: 380;
-    max-width: 38ch;
-    text-wrap: pretty;
-  }
-  .opener-text .emph { color: var(--accent); font-style: italic; }
-
-  .principles { padding: 32px 0 64px; }
-  .principle {
-    border-top: 1px solid var(--rule-strong);
-    padding: 56px 0;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 48px;
-  }
-  .principle:last-child { border-bottom: 1px solid var(--rule-strong); }
-
-  .principle-head {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    align-self: start;
-    position: sticky;
-    top: 96px;
-  }
-  .principle-num { font-size: 48px; line-height: 1; }
-  .principle-title {
-    font-size: clamp(28px, 2.8vw, 38px);
-    line-height: 1.1;
-    letter-spacing: -0.012em;
-    font-weight: 380;
-    color: var(--ink);
-    text-wrap: balance;
-    grid-column: 2;
-  }
-  .principle-tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .principle-body { padding-top: 6px; }
-  .principle-body .body-text { font-size: 19px; line-height: 1.6; }
-  .principle-body em { color: var(--ink); font-weight: 480; }
-
-  /* fix: the title needs to live in the body column */
-  .principle { grid-template-columns: 200px 1fr; }
-  .principle-head { grid-column: 1; }
-  .principle-body { grid-column: 2; }
-  .principle-title { grid-column: auto; }
-  .principle-num { grid-column: auto; }
-  .principle-tag { grid-column: auto; }
-
-  .phil-closing { padding: 96px 0 24px; }
-  .closing-grid {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 40px;
-    border: 1px solid var(--rule-strong);
-    padding: 56px 56px;
-    background: var(--bg-card);
-    position: relative;
-  }
-  .closing-grid::before { content:""; position:absolute; inset:8px; border:1px solid var(--rule); pointer-events:none; }
-  .closing-mark { font-size: 64px; color: var(--accent); }
-  .closing-quote {
-    font-size: clamp(22px, 2.4vw, 30px);
-    line-height: 1.32;
-    color: var(--ink);
-    font-weight: 350;
-    text-wrap: balance;
-    font-style: italic;
-  }
-  .closing-attribution {
-    margin-top: 20px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    color: var(--ink-mute);
-    text-transform: uppercase;
-  }
-  .closing-actions { display:flex; gap:14px; margin-top:36px; flex-wrap:wrap; }
-
-  @media (max-width: 980px) {
-    .phil-grid { grid-template-columns: 1fr; gap: 40px; }
-    .principle { grid-template-columns: 1fr; gap: 24px; }
-    .principle-head { position: static; flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 16px; }
-    .principle-num { font-size: 32px; }
-    .opener-grid { grid-template-columns: 40px 1fr; gap: 16px; }
-    .closing-grid { padding: 32px 24px; grid-template-columns: 40px 1fr; gap: 16px; }
-  }
-  @media (max-width: 640px) {
-    .nav ul { display: none; }
-  }
-</style>
 </body>
 </html>

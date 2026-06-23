@@ -99,6 +99,21 @@
   </div>
 </section>
 
+<!-- ============ 5 · TROUBLESHOOTING ============ -->
+<section class="feature">
+  <div class="wrap feature-grid reveal">
+    <div class="side">V.<span class="skicker">If something's<br>off</span></div>
+    <div class="body">
+      <h2>When it doesn't <em>do what you expect.</em></h2>
+      <p><strong>A run does nothing, or says no model.</strong> Inner Counsel uses a local model through Ollama by default — make sure Ollama is installed and your model is pulled, or point Configuration at another endpoint. The first local run can be slow while the model loads.</p>
+      <p><strong>It isn't reading my notes.</strong> Check Configuration → Notes points at the folder your notes are actually in. Inner Counsel reads <code>.md</code>, <code>.markdown</code>, and <code>.txt</code> prose only, and skips any single file over about a megabyte.</p>
+      <p><strong>My briefings don't show up in Docket.</strong> Briefings land in your vault's <code>Counsel/</code> folder. If Docket's Counsel sidebar is empty, open Docket → Settings → Inner Counsel and click Connect — that points Inner Counsel at this vault as a source and routes briefings here, without touching your own notes folder.</p>
+      <p><strong>I want to remove everything.</strong> Inner Counsel keeps all of its own data in <code>~/.counsel/</code> — delete that folder and it's gone. Your notes are never stored there, so they're untouched.</p>
+      <p>Still stuck? <a class="tlink" href="https://github.com/soccershoe/counsel-feedback/issues/new/choose">Report an issue →</a></p>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FOOTER (canonical) ============ -->
 <footer>
   <div class="wrap">
@@ -138,6 +153,7 @@
           <li><a href="help.html">Help &amp; how-to</a></li>
           <li><a href="help-mcp-setup.html">MCP-client setup</a></li>
           <li><a href="download.html">Download</a></li>
+          <li><a href="https://github.com/soccershoe/counsel-feedback/issues/new/choose">Report an issue</a></li>
         </ul>
       </div>
     </div>

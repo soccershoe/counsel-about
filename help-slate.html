@@ -99,6 +99,21 @@
   </div>
 </section>
 
+<!-- ============ 5 · TROUBLESHOOTING ============ -->
+<section class="feature">
+  <div class="wrap feature-grid reveal">
+    <div class="side">V.<span class="skicker">If something's<br>off</span></div>
+    <div class="body">
+      <h2>When it doesn't <em>do what you expect.</em></h2>
+      <p><strong>My slate is empty.</strong> Slate assembles from your vault and calendar through Docket, so make sure Docket is installed and has a vault open. If there's genuinely nothing due or open, an empty slate is the system working — not every day needs three things.</p>
+      <p><strong>It can't find Docket or the vault.</strong> Slate reads through the <code>docket-mcp</code> helper bundled inside Docket. Confirm Docket is installed and has opened a vault at least once; if needed, set the helper path in Slate's Settings.</p>
+      <p><strong>Is anything leaving my Mac?</strong> No. Assembling the slate is a single local model call, and the endpoint is clamped to your machine unless you explicitly opt into a remote one. Slate's "what keeps slipping" memory lives in <code>~/Library/Application Support/Slate/</code>, outside the vault, so Inner Counsel never re-reads it.</p>
+      <p><strong>Something disappeared from my slate.</strong> That's fading — items you keep not acting on stop surfacing rather than piling up. Pin one to keep it in view; otherwise trust the slate to bring back what matters.</p>
+      <p>Still stuck? <a class="tlink" href="https://github.com/soccershoe/counsel-feedback/issues/new/choose">Report an issue →</a></p>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FOOTER (canonical) ============ -->
 <footer>
   <div class="wrap">
@@ -138,6 +153,7 @@
           <li><a href="help.html">Help &amp; how-to</a></li>
           <li><a href="help-mcp-setup.html">MCP-client setup</a></li>
           <li><a href="download.html">Download</a></li>
+          <li><a href="https://github.com/soccershoe/counsel-feedback/issues/new/choose">Report an issue</a></li>
         </ul>
       </div>
     </div>
